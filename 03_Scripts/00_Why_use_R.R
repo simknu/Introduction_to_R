@@ -12,3 +12,5 @@ data_L1$ts <- as.POSIXct(data_L1$ts, format = "%d.%m.%y %H:%M", tz = "UTC")
 data_L1$value[data_L1$ts >= "2019-06-01 14:50:00" & 
                 data_L1$ts <= "2019-06-01 17:00:00"] <- NA
 
+# plot
+plot(data = data_L1, value ~ ts, type = "l")
