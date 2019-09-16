@@ -13,4 +13,13 @@ most important sources are listed below:
 * [Stackoverflow](https://stackoverflow.com/)
 * [DataCamp](https://www.datacamp.com/)
 * [R-Bloggers](https://www.r-bloggers.com/)
-  
+<br><br>  
+
+
+### License
+These lecture notes and exercises are licensed under a [Creative Commons 
+Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+Feel free to use / adapt them, but don't sell them, and share them under the
+same license.
+
