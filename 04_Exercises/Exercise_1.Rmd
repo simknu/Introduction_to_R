@@ -1,0 +1,113 @@
+---
+title: "Exercise 1"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+### How to solve problems in R? - A suggestion...
+Do I know what to do?
+
+  + Yes:  
+  $\rightarrow$ *Go for it...*
+  + Maybe:  
+  $\rightarrow$ *Try...*
+  + No:  
+  $\rightarrow$ *Look for help in R (`?function_name`, e.g. `?mean`)*  
+  $\rightarrow$ *Ask Google (e.g. 'r how to calculate mean of data frame column')*  
+  $\rightarrow$ *Look for help on one of the cheat sheets*  
+  $\rightarrow$ *Look for hints on the last page of the exercise sheet*
+<br><br>
+
+### 1. Create vectors
+Try to recreate the following vectors:
+
+```{r create vec1, echo = FALSE, results = "hide"}
+vec1 <- seq(from = 1, to = 10, by = 0.5)
+```
+```{r print vec1, echo = TRUE}
+vec1
+```
+<br>
+```{r create vec2, echo = FALSE, results = "hide"}
+vec2 <- rep(c(1, 4, 8, 13), each = 4)
+```
+```{r print vec2, echo = TRUE}
+vec2
+```
+<br><br>
+
+### 2. Combine vectors
+Combine the vectors `canton` and `peak` to `peak_canton`.
+
+```{r create canton, echo = FALSE, results = "hide"}
+canton <- c("GR", "TI", "UR", "BE", "VS")
+```
+```{r print canton, echo = TRUE}
+canton
+```
+
+```{r create peak, echo = FALSE, results = "hide"}
+peak <- c("Piz Bernina", "Adula Rheinwaldhorn", "Dammastock", 
+          "Finsteraarhorn", "Dufourspitze")
+```
+```{r print peak, echo = TRUE}
+peak
+```
+<br>
+```{r create peak_canton, echo = FALSE, results = "hide"}
+peak_canton <- paste(peak, canton, sep = "_")
+```
+```{r print peak_canton, echo = TRUE}
+peak_canton
+```
+<br><br>
+
+### 3. Load and save a .csv-file
+
+i) Load the file `data_L1.csv` from the folder `01_Data` and give it a name (e.g. `my_table`)
+
+ii) Save the object `my_table` as `my_table.csv` to the folder `01_Data`
+
+
+```{r pagebreak, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+## Hints
+
+### 1. Create vectors
+Have a look at the functions `seq` and `rep`.  
+You can see the help files by typing `?sep` and `?rep`.
+<br>
+
+### 2. Combine vectors
+Have a look at the function `paste` (`?paste`).  
+Check the argument `sep = " "` inside the function `paste`.
+<br>
+
+### 3. Load and save a .csv-file
+Check the R-file `03_Load_and_save_data.R` in the `03_Scripts` folder or check the functions `read.csv` and `write.csv`.  
+
