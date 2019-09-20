@@ -1,0 +1,153 @@
+---
+title: "Solution to exercise 3"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+### 1. Plot the airquality dataset
+
+i) Load the `airquality` dataset
+
+```{r load airquality dataset, echo=TRUE, error=FALSE, warning=FALSE}
+data("ariquality")
+```
+
+ii) Try to reproduce the plot shown below with `Temperature` on the x-axis
+and `Ozone` on the y-axis
+
+```{r plot airquality, echo = TRUE, results = "hide", fig.show = "hide"}
+# code with comments
+plot(data = airquality, Ozone ~ Temp, # define dataset and x and y variable
+     las = 1, # horizontal axis numbers
+     pch = 16, # change symbol of points
+     xlab = "Temperature (°F)", ylab = "Ozone (ppb)", # change axis labels
+     main = "Ozone vs. Temperature") # add a title
+```
+```{r plot airquality nocomments, echo = TRUE}
+# code without comments
+plot(data = airquality, Ozone ~ Temp, las = 1, pch = 16,
+     xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+```
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+iii) Calculate the median ozone concentration and add it to the plot as a line
+
+```{r add mean wind speed, echo = TRUE}
+# recreate plot
+plot(data = airquality, Ozone ~ Temp, las = 1, pch = 16,
+     xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+
+# calculate median ozone level
+ozone_med <- median(airquality$Ozone, na.rm = TRUE)
+# add median ozone level to plot
+abline(h = ozone_med, col = "blue")
+```
+
+```{r pagebreak #2, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+iv) Add a second plot on the right with `Temperature` on the x-axis and
+`Wind` on the y-axis
+
+```{r two column plot, echo = TRUE, fig.height = 4, fig.width = 6}
+# create plot window with two columns
+par(mfrow = c(1, 2))
+
+plot(data = airquality, Ozone ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+
+plot(data = airquality, Wind ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Wind (mph)",
+     main = "Wind vs. Temperature")
+```
+
+```{r pagebreak #3, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+v) Save these plots as a PDF
+
+```{r save plots, echo = TRUE}
+# 1) Define the name and size of the plot and where to save it
+pdf(file = "airquality_plot.pdf", width = 8, height = 4)
+
+# 2) Draw plots (i.e. run plot commands)
+par(mfrow = c(1, 2))
+
+plot(data = airquality, Ozone ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+
+plot(data = airquality, Wind ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Wind (mph)",
+     main = "Wind vs. Temperature")
+
+# 3) Write plot to file by shutting off the plotting device
+dev.off()
+```
+
+```{r pagebreak #4, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+vi) Calculate a linear regression between wind and temperature and add the 
+regression line to the respective plot
+
+```{r calculate lm, echo = TRUE, fig.width = 6, figh.height = 4}
+# calculate linear model
+lm <- lm(formula = Wind ~ Temp, data = airquality)
+# inspect the summary of the linear model
+summary(lm)
+
+# recreate the plots
+par(mfrow = c(1, 2))
+
+plot(data = airquality, Ozone ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+
+plot(data = airquality, Wind ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Wind (mph)",
+     main = "Wind vs. Temperature")
+
+# add the linear model to the plot
+# (add 'abline' after the plot in which it should be displayed)
+abline(lm, col = "red")
+```
+

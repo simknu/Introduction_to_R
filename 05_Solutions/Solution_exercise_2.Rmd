@@ -1,0 +1,154 @@
+---
+title: "Solution to exercise 2"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyr)
+```
+<br>
+
+### 1. Manipulate `airquality` dataset
+
+i) Load the `airquality` dataset
+```{r load airquality, echo = TRUE, results = "hide"}
+data("airquality")
+```
+```{r head of airquality, echo = TRUE}
+head(airquality)
+```
+<br>
+
+ii) Rename the column headers to lower case
+```{r rename column headers, echo = TRUE}
+# load dplyr
+library(dplyr)
+
+airquality <- rename(airquality, ozone = Ozone, solar_rad = Solar.R,
+                     wind = Wind, temp = Temp, month = Month, day = Day)
+head(airquality)
+```
+<br>
+
+iii) Add a column with the variable `year`
+```{r add year column, echo = TRUE}
+# Look at the help file of the dataset airquality
+?airquality
+
+airquality <- mutate(airquality, year = 1973)
+head(airquality)
+```
+<br>
+
+iv) Create a new `date` column in the format (`YYYY-MM-DD`, e.g. `2019-09-25`)
+```{r create date column, echo = TRUE}
+# Create the new column as vector
+date_vec <- paste(airquality$year, airquality$month, airquality$day, 
+                  sep = "-")
+
+head(date_vec)
+
+# Add the new column to airquality
+airquality <- mutate(airquality, date = date_vec)
+
+class(airquality$date)
+
+# Convert the date from class character to class date
+airquality <- mutate(airquality, date = as.Date(date, format = "%Y-%m-%d"))
+
+class(airquality$date)
+str(airquality)
+```
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+v) Try to do `i)-iv)` with `dplyr` and piping (`%>%`)
+```{r dplyr piping, echo = TRUE}
+# load original airquality dataset
+data("airquality")
+
+airquality2 <- airquality %>% 
+  # rename columns
+  rename(ozone = Ozone, solar_rad = Solar.R, wind = Wind, temp = Temp, 
+         month = Month, day = Day) %>% 
+  # add year column
+  mutate(year = 1973) %>% 
+  # add date column
+  mutate(date = paste(year, month, day, sep = "-")) %>% 
+  # change class of date column to date
+  mutate(date = as.Date(date))
+
+head(airquality2)
+```
+
+```{r pagebreak #2, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+
+### 2. Convert table from `wide` to `long` format
+
+i) Load the file `tree_growth_data_wide.rds` from the `01_Data` folder and 
+give it a name (e.g. `wide_table`)
+```{r load tree_growth_data_wide, echo = FALSE, results = "hide"}
+wide_table <- readRDS("/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/01_Data/tree_growth_data_wide.rds")
+```
+```{r load tree_growth_data_wide demonstration, echo = TRUE, eval = FALSE}
+# maybe you need to change the working directory or the file path
+wide_table <- readRDS("/Data_01/tree_growth_data_wide.rds")
+```
+<br>
+
+ii) Install the package `tidyr`
+```{r install pck tidyr, eval = FALSE}
+install.packages("tidyr")
+```
+```{r load tidyr library, echo = TRUE, message = FALSE, error = FALSE}
+library(tidyr) # library always needs to be loaded after the installation
+```
+<br>
+
+iii) Convert the table to the format shown below using the function 
+`pivot_longer` from the `tidyr` package
+
+```{r convert to long format, echo = TRUE}
+long_table <- pivot_longer(data = wide_table, cols = 2:4, names_to = "series",
+                           values_to = "value") %>% 
+  # sort by series
+  arrange(series)
+
+head(long_table) # first six rows of a table
+tail(long_table) # last six rows of a table
+```
+<br>
+
+iv) Save the table to the `01_Data` folder with a new name (e.g. `long_table`)
+```{r save long_table, eval = FALSE}
+saveRDS(object = long_table, file = "/01_Data/long_table.rds")
+```
+
