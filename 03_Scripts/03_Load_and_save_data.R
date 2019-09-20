@@ -9,52 +9,48 @@
 setwd("path_to_your_working_directory") # replace with your working directory
 getwd()
 
-# Remove all objects
+# remove all objects from workspace
 #rm(list = ls())
-
 
 
 # Load data (load .csv-File) ----------
 ?read.csv
 
-# Load file airquality.csv
+# load file airquality.csv
 read.csv(file = "01_Data/airquality.csv")
-# Save to an object
+# save to an object
 air_quality <- read.csv(file = "01_Data/airquality.csv")
 
-# Load file airquality2.csv
+# load file airquality2.csv
 air_quality2 <- read.csv(file = "01_Data/airquality2.csv")
 View(air_quality2)
-# Change separator from "," to ";"
+# change separator from "," to ";"
 air_quality2 <- read.csv(file = "01_Data/airquality2.csv", sep = ";")
-
 
 
 # Edit data ----------
 # See file '04_Data_manipulation.R' for more information on editing and 
 # transforming data
 
-# Add the year of the measurements
+# add the year of the measurements
 ?airquality
 air_quality$year <- 1973
 View(air_quality)
 
 
-
 # Save data ----------
 
-# Save as .csv
+# save as .csv
 write.csv(x = air_quality, file = "01_Data/airquality_new.csv", 
           row.names = FALSE)
 write.csv(air_quality, "01_Data/airquality_new.csv", row.names = FALSE) # argument names (here 'x = ' and 'file = ') can be omitted
 
 
-
 # Load and save data as an R-object ----------
 
-# Save as R-object (RDS)
+# save as R-object (RDS)
 saveRDS(object = air_quality, file = "01_Data/airquality.rds")
-# Load R-objects
+# load R-objects
 readRDS(file = "01_Data/airquality.rds")
 
 
