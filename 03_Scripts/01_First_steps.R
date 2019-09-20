@@ -1,19 +1,19 @@
 
 # First steps in R ------------------------------------------------------------
 
-# clean working directory (remove all objects from workspace) ------
+# Clean working directory (remove all objects from workspace) ----------
 #rm(list=ls())
 
 
-# Calculations with R ------
-# Addition
+# Calculations with R ----------
+# addition
 5 + 3
 
-# Subtraction
+# subtraction
 10 - 4
 
 
-# Variable assignment (objects) ------
+# Variable assignment (objects) ----------
 # assign value 42 to x
 x <- 42
 x
