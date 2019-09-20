@@ -1,0 +1,87 @@
+---
+title: "Solution to Exercise 1"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+### 1. Create vectors
+```{r create vec1, echo = TRUE}
+vec1 <- seq(from = 1, to = 10, by = 0.5)
+vec1
+```
+<br>
+```{r create vec2, echo = TRUE}
+vec2 <- rep(c(1, 4, 8, 13), each = 4)
+vec2
+```
+<br><br>
+
+### 2. Combine vectors
+Combine the vectors `canton` and `peak` to `peak_canton`.
+
+```{r create canton and peak and peak_canton, echo = TRUE}
+canton <- c("GR", "TI", "UR", "BE", "VS")
+peak <- c("Piz Bernina", "Adula Rheinwaldhorn", "Dammastock", 
+          "Finsteraarhorn", "Dufourspitze")
+
+peak_canton <- paste(peak, canton, sep = "_")
+peak_canton
+```
+<br><br>
+
+```{r pagebreak, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+### 3. Load and save a .csv-file
+
+i) Load the file `data_L1.csv` from the folder `01_Data` and give it a name (e.g. `my_table`)
+
+```{r getwd, echo = TRUE, results = "hide"}
+getwd()
+```
+```{r define fake path, echo = TRUE, results = "hide"}
+# This serves as an example
+# If you set your working directory to the folder 'R_Basic_Introduction', 
+# this step is not necessary
+my_path <- "path_to_folder_R_Basic_Introduction"
+```
+```{r define my_path, echo = FALSE, results = "hide"}
+my_path <- "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/"
+```
+```{r load .csv-file, echo = TRUE}
+my_table <- read.csv(file = paste0(my_path, "/01_Data/data_L1.csv"))
+
+head(my_table)
+```
+<br><br>
+
+ii) Save the object `my_table` as `my_table.csv` to the folder `01_Data`
+
+```{r write my_table to file, echo = TRUE}
+write.csv(my_table, file = paste0(my_path, "/01_Data/my_table.csv"))
+```
+
