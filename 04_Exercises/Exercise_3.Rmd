@@ -1,0 +1,125 @@
+---
+title: "Exercise 3"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+### 1. Plot the airquality dataset
+
+i) Load the `airquality` dataset
+
+ii) Try to reproduce the plot shown below with `Temperature` on the x-axis
+and `Ozone` on the y-axis
+
+```{r plot airquality, echo = FALSE, fig.height = 3, fig.width = 5}
+data("airquality")
+
+plot(data = airquality, Ozone ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+```
+<br>
+
+iii) Calculate the median ozone concentration and add it to the plot as a line
+
+```{r add mean wind speed, echo = FALSE, fig.height = 3, fig.width = 5}
+plot(data = airquality, Ozone ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+
+# calculate median ozone level
+ozone_med <- median(airquality$Ozone, na.rm = TRUE)
+abline(h = ozone_med, col = "blue")
+```
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+iv) Add a second plot on the right with `Temperature` on the x-axis and
+`Wind` on the y-axis
+
+```{r two column plot, echo = FALSE, fig.height = 4, fig.width = 6}
+par(mfrow = c(1, 2))
+
+plot(data = airquality, Ozone ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
+     main = "Ozone vs. Temperature")
+
+plot(data = airquality, Wind ~ Temp, las = 1,
+     pch = 16, xlab = "Temperature (°F)", ylab = "Wind (mph)",
+     main = "Wind vs. Temperature")
+```
+<br>
+
+v) Save these plots as a PDF
+
+vi) *Advanced:* Calculate a linear regression between wind and temperature and add the 
+regression line to the respective plot
+
+
+```{r pagebreak #2, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+## Hints
+
+### 1. Plot the airquality dataset
+
+i) Load the `airquality` dataset
+Use the command `data("airquality")` to load the dataset.
+
+ii) Try to reproduce the plot shown below with `Temperature` on the x-axis
+and `Ozone` on the y-axis
+    - Axis labels: `xlab = "some text"`, `ylab = "some text"`
+    - Title: `main = "some text"`
+    - Horizontal axis numbering: `las = 1`
+
+iii) Calculate the median ozone concentration and add it to the plot as a line  
+    - Use the command `median` to calculate the median ($\rightarrow$ Do not 
+    forget to remove `NA` values with `na.rm = TRUE`)  
+    - Use the command `abline` to add a line to an existing plot.
+
+iv) Add a second plot on the right with `Temperature` on the x-axis and
+`Wind` on the y-axis
+Use the command `par(mfrow = c(1, 2))` to create two plot windows (`c(1, 2)`
+means 1 row and 2 columns).  
+Alternatively you can use the command 
+`layout(mat = matrix(c(1:2), ncol = 2))`.
+
+v) Save these plots as a PDF  
+    Use the following structure:
+    1. `pdf(file = "path_to_file/file_name.pdf")`
+    2. Code to produce the plots (as many lines of code as needed)
+    3. `dev.off()`
+
+vi) Calculate a linear regression between wind and temperature and add the 
+regression line to the respective plot
+    - Use the command `lm(...)` (`?lm`) to calculate a linear regression.
+    - Use the command `abline` to add the regression line to the plot.
+
