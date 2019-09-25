@@ -4,26 +4,31 @@
 Slides and scripts for the course *R: Basic Introduction*
 <br><br>
 
-The development of this course was inspired by many people and web pages. The 
-most important sources are listed below:
-
-* [Jan Wunder](https://wunder.co.nz/), R teacher at 
-  [University of Zurich](https://www.zhrcourses.uzh.ch/en.html) and other 
-  research institutes
-* [Stackoverflow](https://stackoverflow.com/)
-* [DataCamp](https://www.datacamp.com/)
-* [R-Bloggers](https://www.r-bloggers.com/)
-<br><br>  
+The development of this course was mainly inspired by the course material of
+[Jan Wunders](https://wunder.co.nz/) `R` course `Introdution to R` taught at 
+[WSL](https://www.wsl.ch/en.html).
+<br><br>
 
 
 ### License
-[![CC BY 4.0][cc-by-shield]][cc-by]
+© Simon Knüsel, 2019
 
-This work is licensed under a [Creative Commons Attribution 4.0 International
-License][cc-by].
+Unless otherwise stated this work is licensed under a 
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
-Feel free to use / adapt them, but don't sell them, and share them under the
-same license.
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]  
 
-[cc-by]: http://creativecommons.org/licenses/by/4.0/
-[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/  
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg  
+<br>
+
+All data that is used in this course and not loaded from the `Data` folder 
+is loaded  from the `R` package `datasets` (R Core Team, 2019).
+<br><br>
+
+### References
+R Core Team (2019). R: A language and environment for statistical computing. 
+  R Foundation for Statistical Computing, Vienna, Austria. 
+  URL https://www.R-project.org/.
+
+
