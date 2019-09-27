@@ -24,4 +24,6 @@ search() # list of all currently loaded packages
 # Uninstall ----------
 remove.packages("dplyr") # uninstalls package from disk
 
+install.packages("dplyr") # simply rerun install.packages to reinstall the package
+
 
