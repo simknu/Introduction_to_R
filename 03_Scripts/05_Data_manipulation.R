@@ -58,7 +58,7 @@ unique(iris$species) # unique instances by variable
 # dpylr approach
 iris3 <- filter(iris, species == "setosa")
 iris3 <- filter(iris, species %in% c("setosa", "virginica"))
-iris3 <- filter(iris, sepal_lenght >= 4.9)
+iris3 <- filter(iris, sepal_length >= 4.9)
 
 # classical approach
 iris4 <- subset(iris, species == "setosa") # same commands as in dplyr approach
