@@ -71,17 +71,17 @@ vec_num
 # what data type is vec_num?
 class(vec_num)
 
-# calculate the mean of vec_2
-vec_2 <- seq(from = 2, to = 14, by = 2)
-vec_2
+# calculate the mean of vec_1
+vec_1 <- seq(from = 2, to = 14, by = 2)
+vec_1
 
 ?mean
-vec_2_mean <- mean(x = vec_2)
-vec_2_mean
+vec_1_mean <- mean(x = vec_1)
+vec_1_mean
 
-# what is the sum of vec_3?
-vec_3 <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
-sum(vec_3) # TRUE = 1, FALSE = 0
+# what is the sum of vec_2?
+vec_2 <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+sum(vec_2) # TRUE = 1, FALSE = 0
 
 
 # select elements of vectors
@@ -100,10 +100,10 @@ sum(vec_num)
 
 
 # create empty vector
-vec_4 <- vector(mode = "logical", length = 5) # empty logical vector
+vec_3 <- vector(mode = "logical", length = 5) # empty logical vector
+vec_3
+vec_4 <- vector(mode = "numeric", length = 3) # empty numeric vector
 vec_4
-vec_5 <- vector(mode = "numeric", length = 3) # empty numeric vector
-vec_5
 
 
 # Data frame ----------
