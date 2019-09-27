@@ -11,9 +11,9 @@ library(dplyr)
 
 # Load data ----------
 data("iris")
-iris
+head(iris)
 data("airquality")
-airquality
+head(airquality)
 
 
 # Scatterplot (two continuous variables) ----------

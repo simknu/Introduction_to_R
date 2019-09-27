@@ -11,10 +11,10 @@ library(dplyr)
 
 # Load data ----------
 data(iris)
-iris
+head(iris)
 
 
-# Overview of data ----------
+# Get an overview of data ----------
 View(iris) # see the dataset as a table
 
 dim(iris) # dimensions
@@ -52,7 +52,7 @@ quantile(iris$sepal_length) # quantiles
 
 # Missing data ----------
 data("airquality")
-airquality
+head(airquality)
 
 mean(airquality$Ozone) # result is NA because of missing data (NA = not available)
 mean(airquality$Ozone, na.rm = TRUE) # result without NA (na.rm = remove NA's)

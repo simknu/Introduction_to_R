@@ -13,7 +13,7 @@ library(dplyr)
 
 # Load data ----------
 data(iris)
-iris
+head(iris)
 
 
 # Get an overview of data ----------

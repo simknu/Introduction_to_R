@@ -110,7 +110,7 @@ vec_4
 
 # use internal dataset airquality
 data(airquality) # load dataset
-airquality
+head(airquality) # view first 6 lines of data frame
 View(airquality) # view dataset
 
 # save airquality as df
