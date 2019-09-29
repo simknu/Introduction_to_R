@@ -86,23 +86,20 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ### 4. Load and save a .csv-file
 
+```{r set working directory, include=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/")
+```
+
 i) Load the file `tree_growth_data.csv` from the folder `01_Data` and give 
 it a name (e.g. `my_table`)
 
-```{r getwd, echo = TRUE, results = "hide"}
-getwd()
+```{r getwd, echo = TRUE, eval = FALSE, results = "hide", warning=FALSE, error=FALSE}
+# Set your working directory to the folder 'R_Basic_Introduction'
+setwd("insert_path_to_folder_R_Basic_Introduction")
 ```
-```{r define fake path, echo = TRUE, results = "hide"}
-# This serves as an example
-# If you set your working directory to the folder 'R_Basic_Introduction', 
-# this step is not necessary
-my_path <- "path_to_folder_R_Basic_Introduction"
-```
-```{r define my_path, echo = FALSE, results = "hide"}
-my_path <- "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/"
-```
+
 ```{r load .csv-file, echo = TRUE}
-my_table <- read.csv(file = paste0(my_path, "/01_Data/tree_growth_data.csv"))
+my_table <- read.csv(file = "01_Data/tree_growth_data.csv")
 
 head(my_table)
 ```
@@ -111,6 +108,6 @@ head(my_table)
 ii) Save the object `my_table` as `my_table.csv` to the folder `01_Data`
 
 ```{r write my_table to file, echo = TRUE}
-write.csv(my_table, file = paste0(my_path, "/01_Data/my_table.csv"))
+write.csv(my_table, file = "01_Data/my_table.csv")
 ```
 
