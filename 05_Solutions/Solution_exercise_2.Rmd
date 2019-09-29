@@ -113,14 +113,18 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ### 2. Convert table from `wide` to `long` format
 
+```{r set working directory, include=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/")
+```
+
 i) Load the file `tree_growth_data_wide.rds` from the `01_Data` folder and 
 give it a name (e.g. `wide_table`)
-```{r load tree_growth_data_wide, echo = FALSE, results = "hide"}
-wide_table <- readRDS("/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/01_Data/tree_growth_data_wide.rds")
-```
-```{r load tree_growth_data_wide demonstration, echo = TRUE, eval = FALSE}
+
+```{r load tree_growth_data_wide, echo = TRUE}
 # maybe you need to change the working directory or the file path
-wide_table <- readRDS("/Data_01/tree_growth_data_wide.rds")
+# (remember to include the filename extension '.rds')
+wide_table <- readRDS("01_Data/tree_growth_data_wide.rds")
+head(wide_table)
 ```
 <br>
 
@@ -129,7 +133,7 @@ ii) Install the package `tidyr`
 install.packages("tidyr")
 ```
 ```{r load tidyr library, echo = TRUE, message = FALSE, error = FALSE}
-library(tidyr) # library always needs to be loaded after the installation
+library(tidyr) # library needs to be loaded after the installation to be available
 ```
 <br>
 
@@ -148,7 +152,7 @@ tail(long_table) # last six rows of a table
 <br>
 
 iv) Save the table to the `01_Data` folder with a new name (e.g. `long_table`)
-```{r save long_table, eval = FALSE}
-saveRDS(object = long_table, file = "/01_Data/long_table.rds")
+```{r save long_table}
+saveRDS(object = long_table, file = "01_Data/long_table.rds")
 ```
 
