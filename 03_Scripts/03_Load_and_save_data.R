@@ -14,43 +14,35 @@ getwd()
 
 
 # Load data (load .csv-File) ----------
-?read.csv
 
-# load file airquality.csv
-read.csv(file = "01_Data/airquality.csv")
-# save to an object
-air_quality <- read.csv(file = "01_Data/airquality.csv")
+# load file tree_growth_data.csv
+read.csv(file = "01_Data/tree_growth_data.csv")
+# assign the loaded file to an object
+tree_growth <- read.csv(file = "01_Data/tree_growth_data.csv")
 
-# load file airquality2.csv
-air_quality2 <- read.csv(file = "01_Data/airquality2.csv")
-View(air_quality2)
+# load file tree_growth_data_2.csv
+tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv")
+View(tree_growth_2) # see the whole data frame
+head(tree_growth_2) # see the first six lines of the data frame
+
 # change separator from "," to ";"
-air_quality2 <- read.csv(file = "01_Data/airquality2.csv", sep = ";")
-
-
-# Edit data ----------
-# See file '04_Data_manipulation.R' for more information on editing and 
-# transforming data
-
-# add the year of the measurements
-?airquality
-air_quality$year <- 1973
-View(air_quality)
+tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv", sep = ";")
+head(tree_growth_2)
 
 
 # Save data ----------
 
-# save as .csv
-write.csv(x = air_quality, file = "01_Data/airquality_new.csv", 
+# save as .csv (readable by Excel)
+write.csv(x = tree_growth_2, file = "01_Data/tree_growth_new.csv", 
           row.names = FALSE)
-write.csv(air_quality, "01_Data/airquality_new.csv", row.names = FALSE) # argument names (here 'x = ' and 'file = ') can be omitted
+write.csv(tree_growth_2, "01_Data/tree_growth_new.csv", row.names = FALSE) # argument names (here 'x = ' and 'file = ') can be omitted
 
 
 # Load and save data as an R-object ----------
 
-# save as R-object (RDS)
-saveRDS(object = air_quality, file = "01_Data/airquality.rds")
+# save as R-object (RDS, readable by R)
+saveRDS(object = tree_growth_2, file = "01_Data/tree_growth_2.rds")
 # load R-objects
-readRDS(file = "01_Data/airquality.rds")
+readRDS(file = "01_Data/tree_growth_2.rds")
 
 
