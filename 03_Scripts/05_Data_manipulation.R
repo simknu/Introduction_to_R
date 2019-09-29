@@ -13,11 +13,10 @@ library(dplyr)
 
 # Load data ----------
 data(iris)
-head(iris)
-
 
 # Get an overview of data ----------
 View(iris) # see the dataset as a table
+head(iris) # see the first six rows of the dataset
 
 dim(iris) # dimensions
 nrow(iris) # number of rows
