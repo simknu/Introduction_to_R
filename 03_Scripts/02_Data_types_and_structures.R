@@ -113,7 +113,7 @@ data(airquality) # load dataset
 head(airquality) # view first 6 lines of data frame
 View(airquality) # view dataset
 
-# save airquality as df
+# assign airquality to df
 df <- airquality
 class(df)
 
@@ -138,7 +138,7 @@ df[1:2, c(1, 3)] # select first two rows of columns 1 and 3
 names(df) # general name of an object
 colnames(df) # column names
 
-# create a data.frame from scratch
+# create a data frame from scratch
 df <- data.frame(First_Name = c("Eva", "Max", "Bill", "Susan"),
                  Last_Name = c("Miller", "Moritz", "Walsh", "Bunn"),
                  Age = c(23, 44, 58, 76))
