@@ -139,5 +139,5 @@ Check the argument `sep = " "` inside the function `paste`.
 
 ### 4. Load and save a .csv-file
 Check the R-file `03_Load_and_save_data.R` in the `03_Scripts` folder or check
-the functions `read.csv` and `write.csv`.  
+the functions `read.csv` (`?read.csv`) and `write.csv` (`?write.csv`).  
 
