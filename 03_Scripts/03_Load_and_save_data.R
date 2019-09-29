@@ -20,10 +20,11 @@ read.csv(file = "01_Data/tree_growth_data.csv")
 # assign the loaded file to an object
 tree_growth <- read.csv(file = "01_Data/tree_growth_data.csv")
 
+
 # load file tree_growth_data_2.csv
 tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv")
-View(tree_growth_2) # see the whole data frame
-head(tree_growth_2) # see the first six lines of the data frame
+View(tree_growth_2) # see the whole dataset
+head(tree_growth_2) # see the first six lines of the dataset
 
 # change separator from "," to ";"
 tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv", sep = ";")
