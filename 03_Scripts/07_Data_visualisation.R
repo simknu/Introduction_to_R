@@ -91,8 +91,8 @@ iris_versicolor <- filter(iris, Species == "versicolor")
 iris_virginica <- filter(iris, Species == "virginica")
 
 # prepare window to draw multiple plots
-par(mfrow = c(1, 3)) # 1 row, 3 columns
 ?par # par controls graphical parameters in the plot window
+par(mfrow = c(1, 3)) # 1 row, 3 columns
 
 hist(x = iris_setosa$Petal.Length, xlab = "Petal length", 
      main = "Iris setosa")
