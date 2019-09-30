@@ -4,7 +4,7 @@
 
 Slides and scripts for the course `R: Basic Introduction`
 
-<br><br>
+<br>
 
 The development of this course was mainly inspired by the course material of
 [Jan Wunders](https://wunder.co.nz/) `R` course `Introdution to R` taught at 
