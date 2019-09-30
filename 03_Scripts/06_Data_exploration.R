@@ -57,7 +57,7 @@ head(airquality)
 mean(airquality$Ozone) # result is NA because of missing data (NA = not available)
 mean(airquality$Ozone, na.rm = TRUE) # result without NA (na.rm = remove NA's)
 
-# The argument 'na.rm' exists in many functions
+# the argument 'na.rm' exists in many functions
 median(airquality$Ozone, na.rm = TRUE)
 sd(airquality$Ozone, na.rm = TRUE)
 max(airquality$Ozone, na.rm = TRUE)
@@ -66,6 +66,7 @@ max(airquality$Ozone, na.rm = TRUE)
 # Summary statistics by group ----------
 table(iris$species) # number of occurrences by group (here species)
 
+# calculate mean, maximum and median of sepal length for each species
 iris_summary <- iris %>% 
   group_by(species) %>% 
   summarise(mean_sepal_length = mean(sepal_length),
