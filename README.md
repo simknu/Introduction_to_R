@@ -1,7 +1,9 @@
 # R Basic Introduction
 
 <br>
-Slides and scripts for the course _R: Basic Introduction_
+
+Slides and scripts for the course `R: Basic Introduction`
+
 <br><br>
 
 The development of this course was mainly inspired by the course material of
