@@ -56,65 +56,76 @@ unique(iris$species) # unique instances by variable
 
 # dpylr approach
 iris3 <- filter(iris, species == "setosa")
-iris3 <- filter(iris, species %in% c("setosa", "virginica"))
-iris3 <- filter(iris, sepal_length >= 4.9)
+unique(iris3$species)
+
+iris4 <- filter(iris, species %in% c("setosa", "virginica")) # species == setosa OR virginica
+unique(iris4$species)
+
+iris5 <- filter(iris, sepal_length >= 4.9)
+head(iris5)
+
+iris6 <- filter(iris, sepal_length >= 4.9 & species == "setosa") # multiple conditions AND = &
+iris7 <- filter(iris, sepal_length > 6 | sepal_length < 5) # multiple conditions OR = |
+
 
 # classical approach
-iris4 <- subset(iris, species == "setosa") # same commands as in dplyr approach
-iris4 <- subset(iris, species %in% c("setosa", "virginica"))
-unique(iris4$species)
+iris8 <- subset(iris, species == "setosa")
+iris9 <- subset(iris, species %in% c("setosa", "virginica"))
 
 
 # Select - select columns ----------
 
 # dplyr approach
-iris6 <- select(iris, sepal_width, sepal_length)
-iris6 <- select(iris, grep("sepal", names(iris)))
+iris10 <- select(iris, sepal_width, sepal_length)
+iris11 <- select(iris, grep("sepal", names(iris)))
 ?grep
 
 # classical approach
-iris5 <- iris[, 1:2]
+iris12 <- iris[, 1:2]
 
 
 # Arrange - sort by columns ----------
 
 # dplyr approach
-iris6 <- arrange(iris, -sepal_width)
-head(iris6)
+iris13 <- arrange(iris, -sepal_width)
+head(iris13)
 
 # classical approach
-iris7 <- iris[order(iris$sepal_width, decreasing = TRUE), ]
+iris14 <- iris[order(iris$sepal_width, decreasing = TRUE), ]
 
 
 # Summarise - summarise data ----------
 
 # dplyr approach
-iris8 <- summarise(iris, mean = mean(petal_length))
-iris8 <- summarise(iris, max = max(petal_length))
-iris8
+iris15 <- summarise(iris, mean = mean(petal_length))
+iris15 <- summarise(iris, max = max(petal_length))
+iris15
 
 # classical appraoch
-iris9 <- mean(iris$petal_length)
-iris9 <- max(iris$petal_length)
-iris9
+iris16 <- mean(iris$petal_length)
+iris16 <- max(iris$petal_length)
+iris16
 
 
 # Group_by - group data ----------
 
 # dplyr approach
-iris_grouped <- group_by(iris, species)
-iris10 <- summarise(iris_grouped, mean = mean(petal_length))
-iris10
+iris_gr <- group_by(iris, species)
+iris_gr_mean <- summarise(iris_gr, mean = mean(petal_length))
+iris_gr_mean
 
 # classical appraoch
-iris_setosa <- subset(iris, species == "setosa")
-iris11 <- mean(iris_setosa$petal_length)
+iris_set <- subset(iris, species == "setosa")
+iris_set_mean <- mean(iris_set$petal_length)
+iris_set_mean
 
-iris_versicolor <- subset(iris, species == "versicolor")
-iris12 <- mean(iris_versicolor$petal_length)
+iris_ver <- subset(iris, species == "versicolor")
+iris_ver_mean <- mean(iris_ver$petal_length)
+iris_ver_mean
 
-iris_virginica <- subset(iris, species == "virginica")
-iris13 <- mean(iris_virginica$petal_length)
+iris_vir <- subset(iris, species == "virginica")
+iris_vir_mean <- mean(iris_vir$petal_length)
+iris_vir_mean
 
 
 # Repetition of dplyr arguments ----------
@@ -146,10 +157,10 @@ iris_dplyr <- iris %>%
   filter(sepal_length >= 4.9) %>% 
   select(sepal_length, sepal_width, species, genus) %>% 
   arrange(-sepal_length) %>% 
-  group_by(species, genus) %>% 
+  group_by(species, genus) %>% # data can be grouped by multiple columns
   summarise(sepal_length_mean = mean(sepal_length),
             sepal_width_mean = mean(sepal_width)) %>% 
-  ungroup()
+  ungroup() # always use after group_by
 
 iris_dplyr
 
