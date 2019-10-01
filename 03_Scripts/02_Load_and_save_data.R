@@ -9,8 +9,8 @@
 setwd("path_to_your_working_directory") # replace with your working directory
 getwd()
 
-# remove all objects from workspace
-#rm(list = ls())
+# -> see also the slide 'Set working directory' in the slides for the course
+# (in the '02_Slides' folder)
 
 
 # Load data (load .csv-File) ----------
@@ -40,6 +40,9 @@ write.csv(tree_growth_2, "01_Data/tree_growth_new.csv", row.names = FALSE) # arg
 
 
 # Load and save data as an R-object ----------
+
+# R objects can be useful if you need to save large datasets efficiently, 
+# however, these objects are only readable by R
 
 # save as R-object (RDS, readable by R)
 saveRDS(object = tree_growth_2, file = "01_Data/tree_growth_2.rds")
