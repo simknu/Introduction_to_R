@@ -10,9 +10,9 @@ library(dplyr)
 
 
 # Load data ----------
-data("iris")
+data(iris)
 head(iris)
-data("airquality")
+data(airquality)
 head(airquality)
 
 

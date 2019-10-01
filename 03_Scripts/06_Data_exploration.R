@@ -51,7 +51,7 @@ quantile(iris$sepal_length) # quantiles
 
 
 # Missing data ----------
-data("airquality")
+data(airquality)
 head(airquality)
 
 mean(airquality$Ozone) # result is NA because of missing data (NA = not available)

@@ -64,7 +64,7 @@ wilcox.test(x = basketball, y = other, alternative = "two.sided",
 # Linear models ---------------------------------------------------------------
 
 # Load data
-data("airquality")
+data(airquality)
 head(airquality)
 
 # Relationship between wind and temperature
