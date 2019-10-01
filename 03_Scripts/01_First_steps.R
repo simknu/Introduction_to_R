@@ -1,9 +1,6 @@
 
 # First steps in R ------------------------------------------------------------
 
-# Clean working directory (remove all objects from workspace) ----------
-#rm(list=ls())
-
 
 # Calculations with R ----------
 # addition
@@ -13,9 +10,9 @@
 10 - 4
 
 
-# Variable assignment (objects) ----------
+# Variable assignment using '<-' ----------
 # assign value 42 to x
-x <- 42
+x <- 42 # always use '<-' to assign a value
 x
 
 # assign value 50 to y
