@@ -1,20 +1,35 @@
 
-# Data visualisation ----------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Title: Data visualisation
 
-# Prepare workspace ----------
+# Description: Introduction to graphics in R.
+#  1) Plot types (i.e. scatterplot, boxplot, histogram, etc.)
+#  2) Multiple plots in the same window
+#  3) Save plots
+#  4) Visualisation capabilities of R
+
+# Author: Simon Knüsel
+
+# Date: 2019-10-01
+# -----------------------------------------------------------------------------
+
+
+# Prepare workspace --------------------
 #setwd("path_to_your_working_directory") # replace with your working directory
 #rm(list = ls())
 
-# load libraries
+# Load packages
 library(dplyr)
 
 
-# Load data ----------
+# Load data --------------------
 data(iris)
 head(iris)
 data(airquality)
 head(airquality)
 
+
+# 1) Plot types --------------------
 
 # Scatterplot (two continuous variables) ----------
 ?plot
@@ -67,6 +82,7 @@ boxplot(data = iris, Sepal.Length ~ Species, ylab = "Sepal length",
 
 
 # Time-series plot (line plot) ----------
+
 # create date column for airquality
 ?airquality
 
@@ -83,7 +99,7 @@ plot(data = airquality_plot, Ozone ~ ts, type = "l")
 
 
 
-# Multiple plots in same window ----------
+# 2) Multiple plots in the same window --------------------
 
 # prepare datasets for one histogram per species
 iris_setosa <- filter(iris, Species == "setosa")
@@ -120,7 +136,6 @@ hist(x = iris_virginica$Petal.Length, xlab = "Petal length",
      main = "Iris virginica")
 
 
-
 # another example of multiple plots (with layout)
 layout(mat = matrix(c(1:2), ncol = 1))
 layout.show(2)
@@ -144,7 +159,7 @@ plot(x = airquality_plot$ts, y = airquality_plot$Temp, type = "l",
 
 
 
-# Save plots ----------
+# 3) Save plots --------------------
 
 getwd() # plots are by default saved to the current working directory
 
@@ -165,7 +180,7 @@ hist(x = iris_virginica$Petal.Length, xlab = "Petal length",
 dev.off()
 
 
-# Visualisation capabilities of R ----------
+# 4) Visualisation capabilities of R --------------------
 
 # for inspirations on nice graphs and the potential of R for plotting
 # https://www.r-graph-gallery.com/
