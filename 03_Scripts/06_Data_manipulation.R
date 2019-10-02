@@ -1,32 +1,39 @@
 
-# Data manipulation -----------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Title: Data manipulation
 
-# Prepare workspace ----------
+# Description: Introduction to data manipulation in the classical way and 
+#  also with the package "dplyr".
+#  1) Manipulate data
+#  2) Use dplyr efficiently - piping
+
+# Author: Simon Knüsel
+
+# Date: 2019-09-30
+# -----------------------------------------------------------------------------
+
+
+# Prepare workspace --------------------
 #setwd("path_to_your_working_directory") # replace with your working directory
-#rm(list = ls())
+#rm(list = ls()) # to start clean (removes all saved objects)
 
-# load libraries
+# Load packages
 #install.packages("dplyr")
 library(dplyr)
 ?dplyr
 
 
-# Load data ----------
+# Load data --------------------
 data(iris)
 
-# Get an overview of data ----------
+# Get an overview of data
 View(iris) # see the dataset as a table
 head(iris) # see the first six rows of the dataset
-
-dim(iris) # dimensions
-nrow(iris) # number of rows
-ncol(iris) # number of columns
 
 str(iris) # structure of the dataset
 
 
-
-# Manipulate data -------------------------------------------------------------
+# 1) Manipulate data --------------------
 
 # Change column headers to lower case
 colnames(iris)
@@ -52,14 +59,13 @@ identical(iris1, iris2)
 
 # Filter - select rows by condition  ----------
 table(iris$species) # number of occurrences by variable
-unique(iris$species) # unique instances by variable
 
 # dpylr approach
-iris3 <- filter(iris, species == "setosa")
-unique(iris3$species)
+iris3 <- filter(iris, species == "setosa") # select only "setosa"
+table(iris3$species)
 
 iris4 <- filter(iris, species %in% c("setosa", "virginica")) # species == setosa OR virginica
-unique(iris4$species)
+table(iris4$species)
 
 iris5 <- filter(iris, sepal_length >= 4.9)
 head(iris5)
@@ -128,9 +134,9 @@ iris_vir_mean <- mean(iris_vir$petal_length)
 iris_vir_mean
 
 
-# Repetition of dplyr arguments ----------
+# 2) Use dplyr efficiently - piping  --------------------
 
-# repetition of dplyr arguments
+# Repetition of dplyr arguments
 ?mutate # add or change a column
 ?filter # filter rows by condition
 ?select # select columns
@@ -145,12 +151,12 @@ vignette("dplyr")
 # https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
 
 
-# Use dplyr efficiently - piping ----------
+# Piping ----------
 
 # NEW: Pipe sign %>% 
 # %>% assigns the data frame to the function
-# shortcut Mac: Command + Shift + M
-# shortcut Windows: Ctrl + Shift + M
+# Shortcut Mac: Command + Shift + M
+# Shortcut Windows: Ctrl + Shift + M
 
 iris_dplyr <- iris %>% 
   mutate(genus = "Iris") %>% 
