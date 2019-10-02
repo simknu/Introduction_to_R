@@ -31,7 +31,7 @@ library(tidyr)
 
 i) Load the `airquality` dataset
 ```{r load airquality, echo = TRUE, results = "hide"}
-data("airquality")
+data(airquality)
 ```
 ```{r head of airquality, echo = TRUE}
 head(airquality)
@@ -39,44 +39,38 @@ head(airquality)
 <br>
 
 ii) Rename the column headers to lower case
-```{r rename column headers, echo = TRUE}
-# load dplyr
+```{r rename column headers #1, echo = TRUE}
+# convert column names to lower case in the classical way
+airquality1 <- airquality
+colnames(airquality1) <- tolower(colnames(airquality1))
+
+# convert column names to lower case with dplyr
 library(dplyr)
-
-airquality <- rename(airquality, ozone = Ozone, solar_rad = Solar.R,
-                     wind = Wind, temp = Temp, month = Month, day = Day)
-head(airquality)
+# option 1
+airquality1 <- rename(airquality, ozone = Ozone, solar.rad = Solar.R, 
+                      wind = Wind, temp = Temp, month = Month, day = Day)
 ```
-<br>
+```{r rename column headers #2, echo = TRUE, results = "hide"}
+# option 2 (advanced)
+airquality1 < airquality %>% 
+  # convert to lower case
+  rename_all(tolower)
 
-iii) Add a column with the variable `year`
-```{r add year column, echo = TRUE}
-# Look at the help file of the dataset airquality
-?airquality
-
-airquality <- mutate(airquality, year = 1973)
-head(airquality)
 ```
-<br>
+```{r rename column headers #3, echo = TRUE}
+# Additional example:
+# convert dot (.) to underscore (_)
+# option 1
+colnames(airquality1)[2] <- "solar_r"
+# option 2 (advanced)
+colnames(airquality1) <- gsub("\\.", "_", colnames(airquality1))
 
-iv) Create a new `date` column in the format (`YYYY-MM-DD`, e.g. `2019-09-25`)
-```{r create date column, echo = TRUE}
-# Create the new column as vector
-date_vec <- paste(airquality$year, airquality$month, airquality$day, 
-                  sep = "-")
-
-head(date_vec)
-
-# Add the new column to airquality
-airquality <- mutate(airquality, date = date_vec)
-
-class(airquality$date)
-
-# Convert the date from class character to class date
-airquality <- mutate(airquality, date = as.Date(date, format = "%Y-%m-%d"))
-
-class(airquality$date)
-str(airquality)
+# Additional example with dplyr (advanced):
+airquality1 <- airquality %>% 
+  # convert to lower case
+  rename_all(tolower) %>% 
+  # replace dots (.) with underscores (_)
+  rename_all(~gsub("\\.", "_", .))
 ```
 
 ```{r pagebreak #1, results="asis", echo = FALSE}
@@ -85,10 +79,44 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 }
 ```
 
+iii) Add a column with the variable `year`
+```{r add year column, echo = TRUE}
+# Look at the help file of the dataset airquality
+?airquality
+
+airquality_year <- mutate(airquality1, year = 1973)
+head(airquality_year)
+```
+<br>
+
+
+iv) Create a new `date` column in the format (`YYYY-MM-DD`, e.g. `2019-09-25`)
+```{r create date column, echo = TRUE}
+# Create the new column as vector
+date_vec <- paste(airquality_year$year, airquality_year$month, 
+                  airquality_year$day, sep = "-")
+date_vec[1:6]
+
+# Add the new column to airquality
+airquality_date <- mutate(airquality1, date = date_vec)
+class(airquality_date$date)
+
+# Convert the date from class character to class date
+airquality_date <- mutate(airquality_date, date = as.Date(date, format = "%Y-%m-%d"))
+class(airquality_date$date)
+str(airquality_date)
+```
+
+```{r pagebreak #2, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
 v) Try to do `i)-iv)` with `dplyr` and piping (`%>%`)
 ```{r dplyr piping, echo = TRUE}
 # load original airquality dataset
-data("airquality")
+data(airquality)
 
 airquality2 <- airquality %>% 
   # rename columns
@@ -102,9 +130,10 @@ airquality2 <- airquality %>%
   mutate(date = as.Date(date))
 
 head(airquality2)
+str(airquality2)
 ```
 
-```{r pagebreak #2, results="asis", echo = FALSE}
+```{r pagebreak #3, results="asis", echo = FALSE}
 if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
   cat("\\pagebreak")
 }
@@ -140,15 +169,17 @@ library(tidyr) # library needs to be loaded after the installation to be availab
 iii) Convert the table to the format shown below using the function 
 `pivot_longer` from the `tidyr` package
 
-```{r convert to long format, echo = TRUE}
+```{r convert to long format #1, echo = TRUE}
 long_table <- pivot_longer(data = wide_table, cols = 2:4, names_to = "series",
                            values_to = "value") %>% 
   # sort by series
   arrange(series)
 
 head(long_table) # first six rows of a table
+
 tail(long_table) # last six rows of a table
 ```
+
 <br>
 
 iv) Save the table to the `01_Data` folder with a new name (e.g. `long_table`)
