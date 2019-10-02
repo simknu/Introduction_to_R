@@ -1,8 +1,16 @@
 
-# First steps in R ------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Title: First steps in R
+
+# Description: This script demonstrates some very basic functionalities of R
+
+# Author: Simon Knüsel
+
+# Date: 2019-09-30
+# -----------------------------------------------------------------------------
 
 
-# Calculations with R ----------
+# Calculations with R --------------------
 # addition
 5 + 3
 
@@ -10,7 +18,7 @@
 10 - 4
 
 
-# Variable assignment using '<-' ----------
+# Variable assignment using '<-' --------------------
 # assign value 42 to x
 x <- 42 # always use '<-' to assign a value
 x
