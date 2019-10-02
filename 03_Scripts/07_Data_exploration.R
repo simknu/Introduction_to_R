@@ -38,31 +38,30 @@ ncol(iris) # number of columns
 str(iris) # structure of the dataset
 
 table(iris$Species) # number of occurrences by variable
-unique(iris$species) # unique instances by variable
+unique(iris$Species) # unique instances by variable
 
 # change column headers (lowercase and underscore (_) instead of dots (.))
 colnames(iris)
 colnames(iris) <- tolower(colnames(iris))
-colnames(iris) <- gsub("\\.", "_", colnames(iris)) # advanced: replace dots (.) with underscores (_)
 head(iris)
 
 
 # 2) Summary statistics --------------------
 summary(iris) # summary of dataset
 
-mean(iris$sepal_length)
-median(iris$sepal_length)
-max(iris$sepal_length)
-min(iris$sepal_length)
+mean(iris$sepal.length)
+median(iris$sepal.length)
+max(iris$sepal.length)
+min(iris$sepal.length)
 
-which.min(iris$sepal_length) # row number of minimum
+which.min(iris$sepal.length) # row number of minimum
 iris[14, ]
-iris[which.min(iris$sepal_length), ]
-which.max(iris$sepal_length) # row number of maximum
+iris[which.min(iris$sepal.length), ]
+which.max(iris$sepal.length) # row number of maximum
 
-sd(iris$sepal_length) # standard deviation
-var(iris$sepal_length) # variance
-quantile(iris$sepal_length) # quantiles
+sd(iris$sepal.length) # standard deviation
+var(iris$sepal.length) # variance
+quantile(iris$sepal.length) # quantiles
 
 
 # 3) Missing data --------------------
@@ -71,7 +70,8 @@ quantile(iris$sepal_length) # quantiles
 # Empty cells from a .csv file are usually automatically converted to NA
 
 mean(airquality$Ozone) # result is NA because of missing data
-mean(airquality$Ozone, na.rm = TRUE) # result without NA (na.rm = remove NA's before calculation)
+airquality$Ozone
+mean(airquality$Ozone, na.rm = TRUE) # result without NA (na.rm = TRUE, removes NA's before calculation)
 
 # the argument "na.rm" exists in many functions
 median(airquality$Ozone, na.rm = TRUE)
@@ -85,9 +85,9 @@ table(iris$species) # number of occurrences by group (here species)
 # calculate mean, maximum and median of sepal length for each species
 iris_summary <- iris %>% 
   group_by(species) %>% 
-  summarise(mean_sepal_length = mean(sepal_length),
-            max_sepal_length = max(sepal_length),
-            med_petal_length = median(petal_length)) %>% 
+  summarise(mean_sepal_length = mean(sepal.length),
+            max_sepal_length = max(sepal.length),
+            med_petal_length = median(petal.length)) %>% 
   ungroup()
 
 iris_summary
