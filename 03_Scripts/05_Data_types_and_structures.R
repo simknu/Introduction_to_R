@@ -1,11 +1,18 @@
 
-# Data types and structures in R ----------------------------------------------
+# -----------------------------------------------------------------------------
+# Title: Data types and structures
 
-# Clean working directory (remove all objects from workspace) ----------
-rm(list=ls())
+# Description: Introduction to data types and structures.
+#  1) Data types (e.g. numeric, character, logical, etc.)
+#  2) Data structures (i.e vector, data frame, list)
+
+# Author: Simon Knüsel
+
+# Date: 2019-09-30
+# -----------------------------------------------------------------------------
 
 
-# Data types ------------------------------------------------------------------
+# 1) Data types --------------------
 
 # numeric
 x <- 55
@@ -57,8 +64,7 @@ end - start # difference in days
 difftime(time1 = end, time2 = start, units = "secs") # custom difference, here seconds
 
 
-# Data structures -------------------------------------------------------------
-
+# 2) Data structures --------------------
 
 # Vector ----------
 
@@ -96,7 +102,7 @@ class(vec_char)
 
 vec_num <- as.character(vec_num)
 class(vec_num)
-sum(vec_num)
+sum(vec_num) # error because sum needs a numeric input
 
 
 # create empty vector
