@@ -26,14 +26,25 @@ knitr::opts_chunk$set(echo = TRUE)
 <br>
 
 ### 1. What results do you expect of the following commands?
-```{r guess results solution, echo = TRUE}
+```{r guess results solution #1, echo = TRUE}
 x <- c(2, 5, 6, 5)
 y <- c(3, 5, 8)
 
 class(x)
 
 x + 1
+```
+
+Explanation to `x + y`:  
+When you add vectors, the first element of the first vector is added to the
+first element of the second vector 
+(i.e. `x + y = c(x[1] + y[1], x[2] + y[2], etc.)`).
+If one vector is longer than the other (in this case `x`), the shorter
+vector is recycled (i.e. `(x + y)[4] = x[4] + y[1]` which is equal to `8`).
+
+```{r guess results solution #2, echo = TRUE}
 x + y
+
 y * 2
 
 y[2:3]
