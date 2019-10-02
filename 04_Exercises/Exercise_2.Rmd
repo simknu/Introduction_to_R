@@ -75,10 +75,9 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ### 1. Manipulate `airquality` dataset
 
-i) Use the command `data("airquality")` to load the dataset.
+i) Use the command `data(airquality)` to load the dataset.
 
-ii) Use the function `rename` (`?rename`) from the `dplyr` package.  
-$\rightarrow$ Do not forget to load the `dplyr` package with `library(dplyr)`
+ii) Use the function `tolower` to convert column names to lower case.
 
 iii) See `?airquality` to find out in which year the measurements were taken. 
 Use the function `mutate` to add the new column `year`.
@@ -95,6 +94,7 @@ new_data_frame <- airquality %>%
   function() %>%  # combine year, month and day columns
   function()      # add date column
 ```
+$\rightarrow$ Do not forget to load the `dplyr` package with `library(dplyr)`
 <br><br>
 
 
@@ -102,12 +102,13 @@ new_data_frame <- airquality %>%
 
 i) Use the function `readRDS` (`?readRDS`).
 
-ii) See the file `04_Install_packages.R` in the `03_Scripts` folder.
+ii) See the file `03_Install_packages.R` in the `03_Scripts` folder.
 
 iii) Have a look at the vignette of the function with the command 
 `vignette("pivot")`. A vignette is a help file with examples included.
 
 iv) Use the function `saveRDS` to save the table as an `R` object to file.  
-$\rightarrow$ Do not forget the file extension `.rds` at the end of the name
+$\rightarrow$ Do not forget the file extension `.rds` at the end of the file 
+name
 
 
