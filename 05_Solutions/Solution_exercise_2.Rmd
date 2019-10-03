@@ -1,0 +1,145 @@
+---
+title: "Solution to exercise 2"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyr)
+```
+<br>
+
+### Explore the `airquality` dataset
+
+i) Load the `airquality` dataset
+```{r load airquality, echo = TRUE, results = "hide"}
+data(airquality)
+```
+```{r head of airquality, echo = TRUE}
+head(airquality)
+```
+<br>
+
+ii) Assign a new name to the dataset (e.g. `airquality_1`)
+```{r assign new name, echo = TRUE}
+airquality_1 <- airquality
+```
+<br>
+
+iii) Get an overview of the dataset:  
+How many rows does the dataset have?
+```{r number of rows, echo = TRUE}
+dim(airquality_1) # returns the number of rows and columns
+
+nrow(airquality_1) # returns the number or rows
+```
+<br>
+
+How many columns does the dataset have?
+```{r number of columns, echo = TRUE}
+dim(airquality_1) # returns the number of rows and columns
+
+ncol(airquality_1) # returns the number or columns
+```
+
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+
+What class do the columns have? Can you guess?
+```{r column classes, echo = TRUE}
+class(airquality_1$Ozone)
+class(airquality_1$Solar.R)
+class(airquality_1$Wind)
+```
+<br>
+
+iv) Calculate the mean temperature
+```{r calculate mean temperature, echo = TRUE}
+# select column Temp
+temp <- airquality_1$Temp # select with name
+temp <- airquality_1[, 4] # select with number
+
+# calculate the mean
+mean(temp)
+
+# or combined in one line
+mean(airquality_1$Temp)
+```
+<br>
+
+v) What is the maximum ozone content?
+```{r max ozone content, echo = TRUE}
+# select column Ozone
+ozone <- airquality_1$Ozone
+ozone <- airquality_1[, 1]
+
+# calculate the maximum
+max(ozone) # result is NA because ozone contains NA's
+max(ozone, na.rm = NA)
+
+# or combined in one line
+max(airquality_1$Ozone, na.rm = TRUE)
+```
+
+
+```{r pagebreak #2, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+
+vi) In which month and day did the maximum ozone content occur?
+```{r which.max ozone content, echo = TRUE}
+# select column Ozone
+ozone <- airquality_1$Ozone
+
+# option 1
+which.max(ozone) # row number of maximum
+airquality_1[117, ] # select the row with the maximum ozone measurement
+
+# option 2
+airquality_1[which.max(ozone), ]
+
+# option 3
+# select the row with the maximum ozone measurement and the
+# Month and Day column
+airquality_1[117, 5:6]
+```
+<br>
+
+vii) Calculate the mean temperature for the month May
+```{r temp may, echo = TRUE}
+# subset to the month May
+airquality_may <- subset(x = airquality_1, Month == 5)
+unique(airquality_may$Month) # check the result
+
+# select the column Temp
+temp_may <- airquality_may$Temp
+
+# calculate the mean
+mean(temp_may)
+```
