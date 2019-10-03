@@ -41,6 +41,7 @@ head(iris1)
 iris2 <- iris
 # Convert to lower case
 colnames(iris2) <- tolower(colnames(iris2))
+colnames(iris2)
 ?tolower
 # Replace dots (.) with underscores (_)
 colnames(iris2) <- gsub("\\.", "_", colnames(iris2))
@@ -48,6 +49,19 @@ head(iris2)
 ?gsub # this is an advanced function
 
 identical(iris1, iris2)
+
+
+# Define colors by group (specify a custom color palette)
+palette(c("violet", "blue", "darkgreen"))
+plot(data = iris, Petal.Width ~ Petal.Length, type = "p", col = Species)
+
+
+# Data upload with missing data coded as some value (e.g. -99999)
+setwd("~/Introduction_to_R") # set working directory to course folder
+
+# using "na.strings = " converts the provided values to NA during the upload
+tree_growth <- read.csv(file = "01_Data/tree_growth_data.csv", 
+                        na.strings = "-99999")
 
 
 
@@ -58,9 +72,16 @@ identical(iris1, iris2)
 vec1 <- c("Bern", "Zurich", "Basel", "Geneva")
 class(vec1)
 
+vec3 <- c(2, 3, 4, 5)
+class(vec3)
+vec3 <- as.character(vec3)
+class(vec3)
+
 vec2 <- c(TRUE, FALSE, TRUE, TRUE)
 class(vec2)
 sum(vec2) # In calculations TRUE = 1 and FALSE = 0
+
+class(iris$Species)
 
 
 # Data frames ------
@@ -77,10 +98,17 @@ str(tree_growth)
 
 # Data manipulation ------
 
+#install.packages("dplyr")
+library(dplyr)
+
 # Add or change a column
 iris3 <- mutate(iris1, genus = "Iris")
 
 # Filter rows by condition
+iris6 <- filter(iris1, species %in% c("setosa", "virginica"))
+iris6$species
+
+# OR Alt + 7 |
 iris4 <- filter(iris1, sepal_length > 6 | sepal_length < 5) # multiple conditions OR = |
 
 # Select columns
