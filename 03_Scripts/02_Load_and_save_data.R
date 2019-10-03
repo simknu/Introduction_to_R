@@ -8,9 +8,6 @@
 #  2) Load data
 #  3) Save data
 
-#  For more help you can also have a look at the slides "Set working directory"
-#  in the course material (inside the folder "02_Slides").
-
 # Author: Simon Knüsel
 
 # Date: 2019-09-30
@@ -18,49 +15,25 @@
 
 
 # 1) Set working directory --------------------
-
-# Path to the current working directory
-# Help for Windows see: https://www.dummies.com/computers/operating-systems/windows-xp-vista/how-to-find-a-folders-path-name-in-windows-explorer/
-# Help for Mac see: https://apple.stackexchange.com/questions/317992/is-there-any-way-to-get-the-path-of-a-folder-in-macos
+## See also documentation in the 02_Slides folder
 
 setwd("path_to_your_working_directory") # replace with your working directory
 getwd() # get the current working directory
 
 
-# 2) Load data (load .csv-File) --------------------
+# 2) Load data (load a csv-File) --------------------
 
-# load file tree_growth_data.csv
-read.csv(file = "01_Data/tree_growth_data.csv")
-# assign the loaded file to an object
+# load file tree_growth_data.csv and assign it to tree_growth
 tree_growth <- read.csv(file = "01_Data/tree_growth_data.csv")
 
-
-# load file tree_growth_data_2.csv
-tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv")
-View(tree_growth_2) # see the whole dataset
-head(tree_growth_2) # see the first six lines of the dataset
-
-# change separator from "," to ";"
-tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv", sep = ";")
-head(tree_growth_2)
+# load file tree_growth_data_2.csv and assign it to tree_growth_2
+tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv", 
+                          sep = ";") # use "sep = " to change separtor from comma (,) to semicolon (;)
 
 
-# 3) Save data --------------------
+# 3) Save data (save as a csv-File) --------------------
 
-# save as .csv (readable by Excel)
+# save as .csv (do not forget the file extension .csv in the file name!)
 write.csv(x = tree_growth_2, file = "01_Data/tree_growth_new.csv", 
           row.names = FALSE)
-write.csv(tree_growth_2, "01_Data/tree_growth_new.csv", row.names = FALSE) # argument names (here 'x = ' and 'file = ') can be omitted
-
-
-# Load and save data as an R-object --------
-
-# R objects can be useful if you need to save large datasets efficiently, 
-# however, these objects are only readable by R
-
-# save as R-object (RDS, readable by R)
-saveRDS(object = tree_growth_2, file = "01_Data/tree_growth_2.rds")
-# load R-objects
-readRDS(file = "01_Data/tree_growth_2.rds")
-
 
