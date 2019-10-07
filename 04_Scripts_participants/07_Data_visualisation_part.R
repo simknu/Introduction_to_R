@@ -10,13 +10,16 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-01
+# Date: 2019-10-07
 # -----------------------------------------------------------------------------
 
 
+# Prepare workspace --------------------
+
+
+
+
 # Load data --------------------
-
-
 
 
 
@@ -51,11 +54,7 @@
 
 
 
-
-
 # 2) Multiple plots in the same window --------------------
-
-
 
 
 
@@ -67,7 +66,11 @@
 
 # 3) Save plots --------------------
 
+# 1) Define the name and size of the plot and where to save it
 
+# 2) Draw plots (i.e. run plot commands)
+
+# 3) Write plot to file by shutting off the plotting device
 
 
 
