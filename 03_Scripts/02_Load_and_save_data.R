@@ -25,15 +25,17 @@ getwd() # get the current working directory
 
 # load file tree_growth_data.csv and assign it to tree_growth
 tree_growth <- read.csv(file = "01_Data/tree_growth_data.csv")
+head(tree_growth) # see first six lines of dataset
 
 # load file tree_growth_data_2.csv and assign it to tree_growth_2
 tree_growth_2 <- read.csv(file = "01_Data/tree_growth_data_2.csv", 
                           sep = ";") # use "sep = " to change separtor from comma (,) to semicolon (;)
+head(tree_growth_2)
 
 
 # 3) Save data (save as a csv-File) --------------------
 
 # save as .csv (do not forget the file extension .csv in the file name!)
-write.csv(x = tree_growth_2, file = "01_Data/tree_growth_new.csv", 
+write.csv(x = tree_growth, file = "01_Data/tree_growth_new.csv", 
           row.names = FALSE)
 
