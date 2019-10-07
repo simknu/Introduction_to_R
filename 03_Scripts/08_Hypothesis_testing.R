@@ -14,13 +14,9 @@
 
 # Copyright: © Jan Wunder (2016)
 
-# Date: 2019-09-30
+# Date: 2019-10-07
 # -----------------------------------------------------------------------------
 
-
-# Prepare workspace --------------------
-#setwd("path_to_your_working_directory") # replace with your working directory
-#rm(list = ls())
 
 # Load data --------------------
 data(airquality)
