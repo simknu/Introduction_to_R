@@ -14,11 +14,18 @@
 # -----------------------------------------------------------------------------
 
 
+# Prepare workspace --------------------
+
+# Set working directory
+setwd("~/R_Basic_Introduction/") # path to working directory
+
+
 # Load data --------------------
 data(iris)
 head(iris)
-data(airquality)
-head(airquality)
+
+temp <- read.csv(file = "01_Data/temperature.csv")
+head(temp)
 
 
 # 1) Plot types --------------------
@@ -28,12 +35,6 @@ head(airquality)
 
 plot(x = iris$Petal.Length, y = iris$Petal.Width, type = "p")
 plot(data = iris, Petal.Width ~ Petal.Length, type = "p") # ~ Shortcut on Mac: Alt + N (may vary depending on keyboard)
-
-# colour (col) by group
-plot(data = iris, Petal.Width ~ Petal.Length, type = "p", col = Species)
-# add a legend
-legend("topleft", legend = levels(iris$Species), col = 1:3, 
-       title = "Species", pch = 1, bty = "n")
 
 # add axis labels (xlab, ylab) and a title (main)
 plot(data = iris, Petal.Width ~ Petal.Length, type = "p", col = Species,
@@ -57,7 +58,7 @@ hist(x = iris$Petal.Length)
 hist(x = iris$Petal.Length, xlab = "Petal length", main = "")
 
 # for one species only
-iris_setosa <- filter(iris, Species == "setosa")
+iris_setosa <- subset(iris, Species == "setosa")
 hist(x = iris_setosa$Petal.Length, xlab = "Petal length", 
      main = "Iris setosa")
 # change axis limits (xlim, ylim)
@@ -75,28 +76,22 @@ boxplot(data = iris, Sepal.Length ~ Species, ylab = "Sepal length",
 
 # Time-series plot (line plot) ----------
 
-# create date column for airquality
-?airquality
+# Filter temperature dataset for the site Bern and the month February
+temp_bern <- subset(temp, site == "Bern" & month == 2)
+head(temp_bern)
 
-airquality_plot <- airquality %>%
-        # add year column
-        mutate(Year = 1973) %>% 
-        # add a date column (combination of columns year, month, day)
-        mutate(ts = as.Date(paste(Year, Month, Day, sep = "-",
-                                  format = "%Y-%m-%d")))
+plot(data = temp_bern, temp ~ day, type = "l")
 
-str(airquality_plot)
-
-plot(data = airquality_plot, Ozone ~ ts, type = "l")
-
+plot(data = temp_bern, temp ~ day, type = "l", 
+     xlab = "February", ylab = "Temperature (°C)", las = 1)
 
 
 # 2) Multiple plots in the same window --------------------
 
 # prepare datasets for one histogram per species
-iris_setosa <- filter(iris, Species == "setosa")
-iris_versicolor <- filter(iris, Species == "versicolor")
-iris_virginica <- filter(iris, Species == "virginica")
+iris_setosa <- subset(iris, Species == "setosa")
+iris_versicolor <- subset(iris, Species == "versicolor")
+iris_virginica <- subset(iris, Species == "virginica")
 
 # prepare window to draw multiple plots
 ?par # par controls graphical parameters in the plot window
@@ -113,13 +108,15 @@ dev.off() # reset plot window (also deletes the plot)
 
 
 # more complex plot arrangements (layout)
+# example 1
 layout(mat = matrix(1:4, ncol = 2, nrow = 2)) # same as par(mfrow = c(2, 2))
 layout.show(4) # total number of plots
 
+# example 2
 layout(mat = matrix(c(1, 2, 3, 3), ncol = 2, nrow = 2, byrow = TRUE), 
        widths = c(2, 1, 1))
 layout.show(3)
-
+# draw plots
 hist(x = iris_setosa$Petal.Length, xlab = "Petal length", 
      main = "Iris setosa")
 hist(x = iris_versicolor$Petal.Length, xlab = "Petal length",
@@ -127,28 +124,27 @@ hist(x = iris_versicolor$Petal.Length, xlab = "Petal length",
 hist(x = iris_virginica$Petal.Length, xlab = "Petal length",
      main = "Iris virginica")
 
-
-# another example of multiple plots (with layout)
+# example 3
+# prepare datasets
+temp_bern_feb <- subset(x = temp, site == "Bern" & month == 2)
+temp_bern_mar <- subset(x = temp, site == "Bern" & month == 3)
+# plot arrangement
 layout(mat = matrix(c(1:2), ncol = 1))
 layout.show(2)
-
 # change margins for first plot
 par(mar = c(0, 4.1, 4.1, 2.1)) # mar controls the margins of the plot window, mar = c(bottom, left, top, right)
-
 # plot in the first panel
-plot(x = airquality_plot$ts, y = airquality_plot$Ozone, type = "l",
-     col = "blue", ylab = "Ozone", 
-     main = "Airquality\nNew York, 1973", # '\n' introduces a line break
+plot(x = temp_bern_feb$day, y = temp_bern_feb$temp, type = "l",
+     col = "red", ylab = "February", 
+     main = "Temperature Bern\n February and March 2013", # '\n' introduces a line break
      xaxt = "n", # suppresses the x-axis label and ticks
      las = 1 # horizontal axis labels
      )
-
 # change margins for the second plot
 par(mar = c(5.1, 4.1, 0, 2.1))
 # plot in the second panel
-plot(x = airquality_plot$ts, y = airquality_plot$Temp, type = "l",
-     ylab = "Temperature", col = "red", las = 1)
-
+plot(x = temp_bern_mar$day, y = temp_bern_mar$temp, type = "l",
+     xlab = "Day", ylab = "March", col = "red", las = 1)
 
 
 # 3) Save plots --------------------
