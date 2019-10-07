@@ -25,7 +25,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(tidyr)
 ```
-<br>
+
+## Data exploration
 
 ### Explore the `airquality` dataset
 
