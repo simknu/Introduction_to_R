@@ -25,7 +25,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(tidyr)
 ```
-<br>
 
 ## Data exploration
 
@@ -39,10 +38,10 @@ ii) Assign a new name to the dataset (e.g. `airquality_1`)
 
 <br>
 
-iii) Get an overview of the dataset:  
-How many rows does the dataset have?  
-How many columns does the dataset have?  
-What class do the columns have? Can you guess?  
+iii) Get an overview of the dataset:
+     - How many rows does the dataset have?
+     - How many columns does the dataset have?
+     - What class do the columns have? Can you guess?
 
 <br><br>
 
@@ -71,8 +70,6 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ## Hints
 
-### Explore the `airquality` dataset
-
 i) Use the command `data(airquality)` to load the dataset.
 
 <br>
@@ -81,9 +78,10 @@ ii) Assign a new name with the form `new_name <- airquality`
 
 <br>
 
-iii) Number of rows: Check the functions `dim` (`?dim`) or `nrow` (`?nrow`)  
-Number of columns: Check the functions `dim` (`?dim`) or `ncol` (`?ncol`)  
-Column classes: Check the function `class` (`?class`)
+iii) Get an overview of the dataset:
+     - Number of rows: Check the functions `dim` (`?dim`) or `nrow` (`?nrow`)
+     - Number of columns: Check the functions `dim` (`?dim`) or `ncol` (`?ncol`)
+     - Column classes: Check the function `class` (`?class`)
 
 <br>
 
