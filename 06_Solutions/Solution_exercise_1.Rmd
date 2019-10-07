@@ -34,6 +34,8 @@ y <- c(3, 5, 8)
 class(x)
 
 x + 1
+
+x + y
 ```
 
 Explanation to `x + y`:  
@@ -41,11 +43,9 @@ When you add vectors, the first element of the first vector is added to the
 first element of the second vector 
 (i.e. `x + y = c(x[1] + y[1], x[2] + y[2], etc.)`).
 If one vector is longer than the other (in this case `x`), the shorter
-vector is recycled (i.e. `(x + y)[4] = x[4] + y[1]` which is equal to `8`).
+vector is recycled (i.e. `(x + y)[4] = x[4] + y[1]`).
 
 ```{r guess results solution #2, echo = TRUE}
-x + y
-
 y[2:3]
 x[x > 5]
 
