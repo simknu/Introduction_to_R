@@ -26,9 +26,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Data visualisation
 
-### Plot the airquality dataset
+### Visualise the `airquality` dataset
 
-i) Load the `airquality` dataset
+i) Load the internal dataset `airquality`
 
 ii) Try to reproduce the plot shown below with `Temperature` on the x-axis
 and `Ozone` on the y-axis
@@ -94,31 +94,31 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 ## Hints
 
 i) Load the `airquality` dataset
-Use the command `data("airquality")` to load the dataset.
+   - Use the command `data(airquality)` to load the dataset.
 
 <br>
 
 ii) Try to reproduce the plot shown below with `Temperature` on the x-axis
 and `Ozone` on the y-axis
-    - Axis labels: `xlab = "some text"`, `ylab = "some text"`
-    - Title: `main = "some text"`
-    - Horizontal axis numbering: `las = 1`
+    - Axis labels: Check the arguments `xlab` and `ylab` (`?xlab, ?ylab`)
+    - Title: Check the argument `main` (`?main`)
+    - Horizontal axis numbering: Check the argument `las` (`?las`)
 
 <br>
 
 iii) Calculate the median ozone concentration and add it to the plot as a line
-     - Use the command `median` to calculate the median ($\rightarrow$ Do not 
-       forget to remove `NA` values with `na.rm = TRUE`)
-     - Use the command `abline` to add a line to an existing plot
+     - Use the command `median` to calculate the median  
+       $\rightarrow$ Do not forget to remove `NA` values with `na.rm = TRUE`
+     - Use the command `abline` (`?abline`) to add a line to an existing plot
 
 <br>
 
 iv) Add a second plot on the right with `Temperature` on the x-axis and
 `Wind` on the y-axis
-Use the command `par(mfrow = c(1, 2))` to create two plot windows (`c(1, 2)`
-means 1 row and 2 columns).  
-Alternatively you can use the command 
-`layout(mat = matrix(c(1:2), ncol = 2))`.
+    - Use the command `par(mfrow = c(1, 2))` to create two plot windows (`c(1, 2)`
+      means 1 row and 2 columns).
+    - Alternatively you can use the command 
+      `layout(mat = matrix(c(1:2), ncol = 2))`.
 
 <br>
 
@@ -133,5 +133,5 @@ v) Save these plots as a PDF
 vi) Calculate a linear regression between wind and temperature and add the 
 regression line to the respective plot
     - Use the command `lm(...)` (`?lm`) to calculate a linear regression
-    - Use the command `abline` to add the regression line to the plot
+    - Use the command `abline` (`?abline`) to add the regression line to the plot
 
