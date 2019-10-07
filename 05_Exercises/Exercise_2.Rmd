@@ -30,7 +30,7 @@ library(tidyr)
 
 ### Explore the `airquality` dataset
 
-i) Load the `airquality` dataset
+i) Load the internal dataset `airquality`
 
 <br>
 
@@ -49,13 +49,13 @@ iv) Calculate the mean temperature
 
 <br>
 
-v) What is the maximum ozone content?  
+v) What is the maximum measured ozone content?  
 
 <br>
 
 *For those who have time left...*
 
-vi) In which month and day did the maximum ozone content occur?  
+vi) In which month and day was the maximum ozone content measured?  
 
 <br>
 
