@@ -23,7 +23,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-<br>
+
+## Vectors
 
 ### 1. What results do you expect of the following commands?
 ```{r guess results solution #1, echo = TRUE}
