@@ -1,5 +1,5 @@
 ---
-title: "Exercise 2"
+title: "Exercise 3"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -25,44 +25,35 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(tidyr)
 ```
+
+## Data manipulation
+
+### Manipulate the `temperature` dataset
+
+i) Load the dataset `temperature.csv` from the `01_Data` folder and
+give it a new name (e.g. `temp`)
+
 <br>
 
-### 1. Manipulate `airquality` dataset
+ii) Filter the dataset for the site `Bern`
 
-i) Load the `airquality` dataset
+<br>
 
-ii) Rename the column headers to lower case
+ii) Add a column with the variable `year` (the year is `2013`)
 
-iii) Add a column with the variable `year`
+<br>
 
-iv) Create a new `date` column in the format (`YYYY-MM-DD`, e.g. `2019-09-25`)
+*For those who have time left...*
 
-v) *Advanced:* Try to do `i)-iv)` with `dplyr` and piping (`%>%`)
-<br><br>
+iv) Create a new `date` column
+    - Create a new column with the variables `year`, `month` and `day` combined
+      (in the form of `"2013-01-25"`)
+    - Convert the `class` of the column from `"character"` to `"date"`
+  
+<br>
 
-
-### 2. Convert table from `wide` to `long` format
-
-i) Load the file `tree_growth_data_wide.rds` from the `01_Data` folder and 
-give it a name (e.g. `wide_table`)
-
-ii) Install the package `tidyr`
-
-iii) Convert the table to the format shown below using the function 
-`pivot_longer` from the `tidyr` package
-
-```{r convert to long format, echo = FALSE, results = "hide"}
-wide_table <- readRDS("/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/01_Data/tree_growth_data_wide.rds")
-
-long_table <- pivot_longer(data = wide_table, cols = 2:4, names_to = "series",
-                           values_to = "value") %>% 
-  arrange(series)
-```
-```{r head of long_table, echo = FALSE}
-head(long_table)
-```
-
-iv) Save the table to the `01_Data` folder with a new name (e.g. `long_table`)
+v) Calculate the average temperature for periods without frost (i.e. 
+the temperature is above `0 °C`) for the site `Zurich`
 
 
 ```{r pagebreak, results="asis", echo = FALSE}
@@ -73,42 +64,37 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ## Hints
 
-### 1. Manipulate `airquality` dataset
+i) Load the dataset `temperature.csv` from the `01_Data` folder and
+give it a new name
+   - Set the working directory to the `01_Data` folder in the course material
+     (`?setwd` or look at the slides in the `02_Slides` folder)
+   - Load the dataset with the function `read.csv` (`?read.csv`)
 
-i) Use the command `data(airquality)` to load the dataset.
+<br>
 
-ii) Use the function `tolower` to convert column names to lower case.
+ii) Check the function `subset` (`?subset`)
 
-iii) See `?airquality` to find out in which year the measurements were taken. 
-Use the function `mutate` to add the new column `year`.
+<br>
 
-iv) Use the function `paste` (with `sep = "-"`) to combine the columns `year`, 
-`month` and `day`.  
-Use the function `as.Date` (with `format = "%Y-%m-%d"`) to create the new date 
-column.
+ii) Use a command in the form of `dataframe$year` and assign the value `2013`
+to this column.
 
-v) Build a structure similar to:  
-```{r sample piping structure, echo = TRUE, eval = FALSE}
-new_data_frame <- airquality %>%
-  function() %>%  # add year column
-  function() %>%  # combine year, month and day columns
-  function()      # add date column
-```
-$\rightarrow$ Do not forget to load the `dplyr` package with `library(dplyr)`
-<br><br>
+<br>
 
+*For those who have time left...*
 
-### 2. Convert table from `wide` to `long` format
+iv) Create a new `date` column
+    - Create a vector that combines the columns `year`, `month` and `day`.
+      Check the function `paste` (`?paste`) and the argument `sep` inside the
+      function `paste`
+    - Add this vector to the dataset and name the column `date`
+    - Check the function `as.Date` (`?as.Date`) to change the class of the
+      column from `"character"` to `"Date"`
+  
+<br>
 
-i) Use the function `readRDS` (`?readRDS`).
-
-ii) See the file `03_Install_packages.R` in the `03_Scripts` folder.
-
-iii) Have a look at the vignette of the function with the command 
-`vignette("pivot")`. A vignette is a help file with examples included.
-
-iv) Use the function `saveRDS` to save the table as an `R` object to file.  
-$\rightarrow$ Do not forget the file extension `.rds` at the end of the file 
-name
-
+v) Calculate the average temperature for periods without frost (i.e. 
+the temperature is above `0 °C`) for the site `Zurich`
+   - Filter the dataset with the function `subset` (`?subset`)
+   - Calculate the average temperature with the function `mean` (`?mean`)
 
