@@ -29,6 +29,13 @@ data(iris)
 
 # 1) Extras --------------------
 
+# Convert missing data (here value -99999) to NA when importing data
+setwd("~/R_Basic_Introduction/") # replace with your path to the course folder
+
+tree_growth <- read.csv(file = "01_Data/tree_growth_data.csv", 
+                        na.strings = -99999)
+
+
 # Convert column names to lower case and replace points (.) with 
 # underscores (_) by hand
 iris1 <- iris
