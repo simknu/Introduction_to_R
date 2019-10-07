@@ -1,8 +1,9 @@
 
 # -----------------------------------------------------------------------------
-# Title: Data types and structures
+# Title: Vector, data frame and list
 
-# Description: Introduction to data types and structures.
+# Description: Introduction to data types (numeric, character, logical, etc.) 
+#  and data structures (vector, data frame, list).
 #  1) Vector
 #  2) Data frame
 #  3) List
@@ -32,6 +33,10 @@ class(city)
 male <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
 male
 class(male)
+
+# factor (for categorical variables)
+treatment <- factor(c("control", "treat1", "treat1", "control"))
+levels(treatment)
 
 # date
 start <- "2019-02-03"
@@ -112,12 +117,12 @@ list <- list(df, airquality, city, vec, male)
 class(list)
 
 # select elements of a list
-list[1] # first list element, contains df
-list1
+list1 <- list[1] # first list element, contains df
+class(list1)
 
-list[[1]] # first list object
-l1 <- list[[1]]
+l1 <- list[[1]] # first list object
 class(l1) # first list object is df, therefore its class is data.frame
+head(l1)
 
 l3 <- list[[4]][1:3] # select single elements from list objects
 l3
