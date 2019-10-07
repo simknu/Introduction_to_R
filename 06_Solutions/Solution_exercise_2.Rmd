@@ -30,7 +30,7 @@ library(tidyr)
 
 ### Explore the `airquality` dataset
 
-i) Load the `airquality` dataset
+i) Load the internal dataset `airquality`
 ```{r load airquality, echo = TRUE, results = "hide"}
 data(airquality)
 ```
@@ -91,7 +91,7 @@ mean(airquality_1$Temp)
 ```
 <br>
 
-v) What is the maximum ozone content?
+v) What is the maximum measured ozone content?
 ```{r max ozone content, echo = TRUE}
 # select column Ozone
 ozone <- airquality_1$Ozone
@@ -113,7 +113,7 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 ```
 
 
-vi) In which month and day did the maximum ozone content occur?
+vi) In which month and day was the maximum ozone content measured?
 ```{r which.max ozone content, echo = TRUE}
 # select column Ozone
 ozone <- airquality_1$Ozone
