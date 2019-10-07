@@ -58,12 +58,15 @@ table(iris$Species) # number of occurrences by group (here species)
 # Calculate the mean of petal length for each species
 iris_setosa <- subset(x = iris, Species == "setosa") # filter for species "setosa"
 table(iris_setosa$Species) # check the result
+mean(iris_setosa$Petal.Length)
 
 iris_versicolor <- subset(iris, Species == "versicolor")
 table(iris_versicolor$Species)
+mean(iris_versicolor$Petal.Length)
 
 iris_virginica <- subset(x = iris, Species == "virginica")
 table(iris_virginica$Species)
+mean(iris_virginica$Petal.Length)
 
 
 # 4) Missing data --------------------
