@@ -26,9 +26,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Data visualisation
 
-### Plot the airquality dataset
+### Visualise the `airquality` dataset
 
-i) Load the `airquality` dataset
+i) Load the internal dataset `airquality`
 
 ```{r load airquality dataset, echo=TRUE, error=FALSE, warning=FALSE}
 data("ariquality")
