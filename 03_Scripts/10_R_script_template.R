@@ -13,7 +13,7 @@
 # Prepare workspace --------------------
 
 # Set working directory
-#setwd("/Users/Desktop/R_Basic_Introduction/")
+setwd("/Users/Desktop/R_Basic_Introduction/") # replace with your working directory
 
 # Load all required packages
 library(dplyr)
