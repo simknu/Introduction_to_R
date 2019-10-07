@@ -63,6 +63,14 @@ member <- c(TRUE, TRUE, FALSE, TRUE)
 sum(member)
 ```
 
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+
 ### 2. Create vectors
 Try to recreate the following vectors:
 
@@ -119,7 +127,7 @@ peak_canton
 ```
 <br><br>
 
-```{r pagebreak #1, results="asis", echo = FALSE}
+```{r pagebreak #2, results="asis", echo = FALSE}
 if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
   cat("\\pagebreak")
 }
