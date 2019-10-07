@@ -1,0 +1,124 @@
+---
+title: "Solution to exercise 3"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data manipulation
+
+### Manipulate the `temperature` dataset
+
+i) Load the dataset `temperature.csv` from the `01_Data` folder and
+give it a new name (e.g. `temp`)
+```{r set working directory, include=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/01_Data/")
+```
+```{r set working directory #2, echo = TRUE, eval = FALSE}
+# Set the working directory
+setwd("~/R_Basic_Introduction/01_Data") # replace with your path to the folder "01_Data"
+```
+```{r load temperature dataset, echo = TRUE}
+# Load data
+temp <- read.csv(file = "temperature.csv")
+
+# Get an overview of dataset
+head(temp) # show the first six rows
+tail(temp) # show the last six rows
+str(temp)
+```
+```{r reset working directory, include=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/06_Solutions/")
+```
+
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+
+ii) Filter the dataset for the site `Bern`
+```{r filter site, echo = TRUE}
+# Filter for site Bern
+temp_be <- subset(temp, site == "Bern")
+unique(temp_be$site) # check the result
+```
+<br>
+
+ii) Add a column with the variable `year` (the year is `2013`)
+```{r add year column, echo = TRUE}
+# Add year column
+temp_be$year <- 2013
+head(temp_be)
+```
+<br>
+
+iv) Create a new `date` column
+    - Create a new column with the variables `year`, `month` and `day` combined
+      (in the form of `"2013-01-25"`)
+    - Convert the `class` of the column from `"character"` to `"date"`
+```{r create date column, echo = TRUE}
+# Create a date vector
+date_vec <- paste(temp_be$year, temp_be$month, temp_be$day, sep = "-")
+head(date_vec)
+
+# Add the date vector as a column to the dataset
+temp_be$date <- date_vec
+head(temp_be)
+```
+
+
+
+```{r pagebreak #2, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+
+
+```{r create date column #2, echo = TRUE}
+# Change the class of the date column to "Date"
+class(temp_be$date)
+temp_be$date <- as.Date(temp_be$date)
+class(temp_be$date)
+```
+<br><br>
+
+v) Calculate the average temperature for periods without frost (i.e. 
+the temperature is above `0 °C`)
+```{r average temperature, echo = TRUE}
+# Filter the dataset for the site Zurich
+temp_zh <- subset(temp, site == "Zurich")
+
+# Filter the dataset for periods without frost
+temp_zh_nofrost <- subset(temp_zh, temp > 0)
+
+# Combine the two filter arguments above
+temp_zh_nofrost <- subset(temp_zh, site == "Zurich" & temp > 0)
+
+# Calculate the average temperature
+mean(temp_zh_nofrost$temp)
+```
+

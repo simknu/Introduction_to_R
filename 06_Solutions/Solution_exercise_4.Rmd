@@ -1,5 +1,5 @@
 ---
-title: "Solution to exercise 3"
+title: "Solution to exercise 4"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -23,9 +23,10 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-<br>
 
-### 1. Plot the airquality dataset
+## Data visualisation
+
+### Plot the airquality dataset
 
 i) Load the `airquality` dataset
 
@@ -147,7 +148,7 @@ plot(data = airquality, Wind ~ Temp, las = 1,
      main = "Wind vs. Temperature")
 
 # add the linear model to the plot
-# (add 'abline' after the plot in which it should be displayed)
+# (add "abline" after the plot in which it should be displayed)
 abline(lm, col = "red")
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "Exercise 3"
+title: "Exercise 4"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -23,9 +23,10 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-<br>
 
-### 1. Plot the airquality dataset
+## Data visualisation
+
+### Plot the airquality dataset
 
 i) Load the `airquality` dataset
 
@@ -76,8 +77,11 @@ plot(data = airquality, Wind ~ Temp, las = 1,
 <br>
 
 v) Save these plots as a PDF
+<br>
 
-vi) *Advanced:* Calculate a linear regression between wind and temperature and add the 
+*For those who have time left:*
+
+vi) Calculate a linear regression between wind and temperature and add the 
 regression line to the respective plot
 
 
@@ -89,10 +93,10 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ## Hints
 
-### 1. Plot the airquality dataset
-
 i) Load the `airquality` dataset
 Use the command `data("airquality")` to load the dataset.
+
+<br>
 
 ii) Try to reproduce the plot shown below with `Temperature` on the x-axis
 and `Ozone` on the y-axis
@@ -100,10 +104,14 @@ and `Ozone` on the y-axis
     - Title: `main = "some text"`
     - Horizontal axis numbering: `las = 1`
 
-iii) Calculate the median ozone concentration and add it to the plot as a line  
-    - Use the command `median` to calculate the median ($\rightarrow$ Do not 
-    forget to remove `NA` values with `na.rm = TRUE`)  
-    - Use the command `abline` to add a line to an existing plot.
+<br>
+
+iii) Calculate the median ozone concentration and add it to the plot as a line
+     - Use the command `median` to calculate the median ($\rightarrow$ Do not 
+       forget to remove `NA` values with `na.rm = TRUE`)
+     - Use the command `abline` to add a line to an existing plot
+
+<br>
 
 iv) Add a second plot on the right with `Temperature` on the x-axis and
 `Wind` on the y-axis
@@ -112,14 +120,18 @@ means 1 row and 2 columns).
 Alternatively you can use the command 
 `layout(mat = matrix(c(1:2), ncol = 2))`.
 
+<br>
+
 v) Save these plots as a PDF  
     Use the following structure:
     1. `pdf(file = "path_to_file/file_name.pdf")`
     2. Code to produce the plots (as many lines of code as needed)
     3. `dev.off()`
 
+<br>
+
 vi) Calculate a linear regression between wind and temperature and add the 
 regression line to the respective plot
-    - Use the command `lm(...)` (`?lm`) to calculate a linear regression.
-    - Use the command `abline` to add the regression line to the plot.
+    - Use the command `lm(...)` (`?lm`) to calculate a linear regression
+    - Use the command `abline` to add the regression line to the plot
 

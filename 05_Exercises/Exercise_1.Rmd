@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 <br>
 
-### How to solve problems in R? - A suggestion...
+## How to solve problems in R? - A suggestion...
 Do I know what to do?
 
   + Yes:  
@@ -39,6 +39,7 @@ Do I know what to do?
   $\rightarrow$ *Look for hints on the last page of the exercise sheet*
 <br><br>
 
+## Vectors
 
 ### 1. What results do you expect of the following commands?
 
@@ -50,15 +51,25 @@ class(x)
 
 x + 1
 x + y
-y * 2
 
 y[2:3]
 x[x > 5]
-x[1:3] + y
 
 x <- x[1:2]
 length(x)
+
+member <- c(TRUE, TRUE, FALSE, TRUE)
+?sum
+sum(member)
 ```
+
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
 
 ### 2. Create vectors
 Try to recreate the following vectors:
@@ -73,13 +84,17 @@ vec1
 ```{r create vec2, echo = FALSE, results = "hide"}
 vec2 <- rep(c(1, 4, 8, 13), each = 4)
 ```
+
 ```{r print vec2, echo = TRUE}
 vec2
 ```
-<br><br>
+
+### *For those who have time left...*
 
 ### 3. Combine vectors
 Combine the vectors `canton` and `peak` to `peak_canton`.
+
+i) Create the `canton` vector
 
 ```{r create canton, echo = FALSE, results = "hide"}
 canton <- c("GR", "TI", "UR", "BE", "VS")
@@ -87,6 +102,9 @@ canton <- c("GR", "TI", "UR", "BE", "VS")
 ```{r print canton, echo = TRUE}
 canton
 ```
+<br>
+
+ii) Create the `peak` vector
 
 ```{r create peak, echo = FALSE, results = "hide"}
 peak <- c("Piz Bernina", "Adula Rheinwaldhorn", "Dammastock", 
@@ -96,6 +114,11 @@ peak <- c("Piz Bernina", "Adula Rheinwaldhorn", "Dammastock",
 peak
 ```
 <br>
+
+iii) What class are the vectors `canton` and `peak`?
+
+iv) Combine the vectors `canton` and `peak`
+
 ```{r create peak_canton, echo = FALSE, results = "hide"}
 peak_canton <- paste(peak, canton, sep = "_")
 ```
@@ -104,15 +127,7 @@ peak_canton
 ```
 <br><br>
 
-### 4. Load and save a .csv-file
-
-i) Load the file `tree_growth_data.csv` from the folder `01_Data` and give it 
-a name (e.g. `my_table`)
-
-ii) Save the object `my_table` as `my_table.csv` to the folder `01_Data`
-
-
-```{r pagebreak, results="asis", echo = FALSE}
+```{r pagebreak #2, results="asis", echo = FALSE}
 if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
   cat("\\pagebreak")
 }
@@ -135,9 +150,4 @@ You can see the help files by typing `?sep` and `?rep`.
 ### 3. Combine vectors
 Have a look at the function `paste` (`?paste`).  
 Check the argument `sep = " "` inside the function `paste`.
-<br>
-
-### 4. Load and save a .csv-file
-Check the R-file `02_Load_and_save_data.R` in the `03_Scripts` folder or check
-the functions `read.csv` (`?read.csv`) and `write.csv` (`?write.csv`).  
 

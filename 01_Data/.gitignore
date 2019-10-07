@@ -11,3 +11,9 @@ long_table.rds
 tree_growth_2.rds
 tree_growth_new.csv
 tree_growth_clean.csv
+tree_growth_data.rds
+tree_growth_data_new.csv
+tree_growth_data.csv
+temp_orig.rds
+temperature_bern.csv
+tree_growth_data_wide.rds

@@ -20,29 +20,30 @@ library(dplyr)
 
 
 # Load data --------------------
-tree_growth <- read.csv("01_Data/tree_growth_data.csv")
+temp <- read.csv("01_Data/temperature.csv")
 
 # Get an overview of data
-head(tree_growth)
-str(tree_growth)
+head(temp)
+str(temp)
 
 
-# Clean data --------------------
+# Manipulate data --------------------
 
 # Do not forget to comment your code
-tree_growth_clean <- tree_growth %>% 
-  mutate(value = ifelse(value == -99999, NA, value)) %>% 
-  # Do not forget to break long code into multiple lines
-  mutate(ts = as.POSIXct(as.character(ts), format = "%Y-%m-%d %H:%M:%S", 
-                         tz = "UTC")) %>% 
-  filter(ts <= "2019-06-01 15:00:00")
+temp$year <- 2019
+temp_bern <- subset(temp, site == "Bern")
+
+# Do not forget to break long code into multiple lines
+temp_bern$date <- as.Date(paste(temp_bern$year, temp_bern$month, 
+                                temp_bern$day, sep = "-"))
 
 
 # Plot data --------------------
-plot(data = tree_growth_clean, value ~ ts, type = "l", col = "red")
+plot(data = temp_bern, temp ~ date, type = "l", col = "red", 
+     xlab = "", ylab = "Temperature (°C)", main = "Temperature in Bern",
+     las = 1)
 
 
 # Save data --------------------
-write.csv(x = tree_growth_clean, file = "01_Data/tree_growth_clean.csv")
-
+write.csv(x = temp_bern, file = "01_Data/temperature_bern.csv")
 

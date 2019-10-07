@@ -10,16 +10,8 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-01
+# Date: 2019-10-07
 # -----------------------------------------------------------------------------
-
-
-# Prepare workspace --------------------
-#setwd("path_to_your_working_directory") # replace with your working directory
-#rm(list = ls())
-
-# Load packages
-library(dplyr)
 
 
 # Load data --------------------
