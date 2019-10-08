@@ -10,11 +10,12 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-07
+# Date: 2019-10-08
 # -----------------------------------------------------------------------------
 
 
 # Prepare workspace --------------------
+
 
 
 
@@ -45,7 +46,6 @@
 
 
 
-
 # Time-series plot (line plot) ----------
 
 
@@ -66,6 +66,7 @@
 
 # 3) Save plots --------------------
 
+
 # 1) Define the name and size of the plot and where to save it
 
 # 2) Draw plots (i.e. run plot commands)
@@ -73,14 +74,5 @@
 # 3) Write plot to file by shutting off the plotting device
 
 
-
-
-
-
-
-# 4) Visualisation capabilities of R --------------------
-
-# for inspirations on nice graphs and the potential of R for plotting
-# https://www.r-graph-gallery.com/
 
 
