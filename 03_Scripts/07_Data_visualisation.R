@@ -37,8 +37,11 @@ plot(x = iris$Petal.Length, y = iris$Petal.Width, type = "p")
 plot(data = iris, Petal.Width ~ Petal.Length, type = "p") # ~ Shortcut on Mac: Alt + N (may vary depending on keyboard)
 
 # add axis labels (xlab, ylab) and a title (main)
-plot(data = iris, Petal.Width ~ Petal.Length, type = "p", col = Species,
+plot(data = iris, Petal.Width ~ Petal.Length, type = "p",
      xlab = "Petal length", ylab = "Petal width", main = "Iris dataset")
+
+# change color of points (col)
+plot(data = iris, Petal.Width ~ Petal.Length, type = "p", col = "red")
 
 # change point symbol (pch)
 ?pch
@@ -80,8 +83,10 @@ boxplot(data = iris, Sepal.Length ~ Species, ylab = "Sepal length",
 temp_bern <- subset(temp, site == "Bern" & month == 2)
 head(temp_bern)
 
+# Plot line plot (type = "l")
 plot(data = temp_bern, temp ~ day, type = "l")
 
+# Change direction of y-axis labels (las = 1)
 plot(data = temp_bern, temp ~ day, type = "l", 
      xlab = "February", ylab = "Temperature (°C)", las = 1)
 
