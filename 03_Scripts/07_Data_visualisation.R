@@ -30,7 +30,7 @@ head(temp)
 
 # 1) Plot types --------------------
 
-# Scatterplot (two continuous variables) ----------
+# Scatterplot (two continuous variables) ------
 ?plot
 
 plot(x = iris$Petal.Length, y = iris$Petal.Width, type = "p")
@@ -56,7 +56,7 @@ abline(h = mean_petal_width, col = "blue") # h = ..., h for horizontal
 abline(v = mean(iris$Petal.Length), col = "grey") # v = ..., v for vertical
 
 
-# Histogram (distribution of a single variable) ----------
+# Histogram (distribution of a single variable) ------
 hist(x = iris$Petal.Length)
 hist(x = iris$Petal.Length, xlab = "Petal length", main = "")
 
@@ -69,7 +69,7 @@ hist(x = iris_setosa$Petal.Length, xlab = "Petal length",
      main = "Iris setosa", xlim = c(0.8, 2.2), ylim = c(0, 14))
 
 
-# Boxplot (compare distributions of groups) ----------
+# Boxplot (compare distributions of groups) ------
 boxplot(data = iris, Sepal.Length ~ Species, ylab = "Sepal length")
 
 # add approximate confidence intervals (notch)
@@ -77,7 +77,7 @@ boxplot(data = iris, Sepal.Length ~ Species, ylab = "Sepal length",
         notch = TRUE)
 
 
-# Time-series plot (line plot) ----------
+# Time-series plot (line plot) ------
 
 # Filter temperature dataset for the site Bern and the month February
 temp_bern <- subset(temp, site == "Bern" & month == 2)
