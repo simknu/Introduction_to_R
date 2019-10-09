@@ -26,27 +26,27 @@
 
 # 1) Plot types --------------------
 
-# Scatterplot (two continuous variables) ----------
+# Scatterplot (two continuous variables) ------
 
 
 
 
 
 
-# Histogram (distribution of a single variable) ----------
+# Histogram (distribution of a single variable) ------
 
 
 
 
 
 
-# Boxplot (compare distributions of groups) ----------
+# Boxplot (compare distributions of groups) ------
 
 
 
 
 
-# Time-series plot (line plot) ----------
+# Time-series plot (line plot) ------
 
 
 
