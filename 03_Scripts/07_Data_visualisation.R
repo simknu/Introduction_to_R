@@ -103,11 +103,11 @@ iris_virginica <- subset(iris, Species == "virginica")
 par(mfrow = c(1, 3)) # 1 row, 3 columns
 
 hist(x = iris_setosa$Petal.Length, xlab = "Petal length", 
-     main = "Iris setosa")
+     main = "Iris setosa", xlim = c(0, 7), ylim = c(0, 22))
 hist(x = iris_versicolor$Petal.Length, xlab = "Petal length",
-     main = "Iris versicolor")
+     main = "Iris versicolor", xlim = c(0, 7), ylim = c(0, 22))
 hist(x = iris_virginica$Petal.Length, xlab = "Petal length",
-     main = "Iris virginica")
+     main = "Iris virginica", xlim = c(0, 7), ylim = c(0, 22))
 
 dev.off() # reset plot window (also deletes the plot)
 
@@ -115,7 +115,7 @@ dev.off() # reset plot window (also deletes the plot)
 # more complex plot arrangements (layout)
 # example 1
 layout(mat = matrix(1:4, ncol = 2, nrow = 2)) # same as par(mfrow = c(2, 2))
-layout.show(4) # total number of plots
+layout.show(4) # insert total number of plots
 
 # example 2
 layout(mat = matrix(c(1, 2, 3, 3), ncol = 2, nrow = 2, byrow = TRUE), 
