@@ -67,10 +67,22 @@ iris7
 
 # Sort values by column ------
 
+# Sort with the function "sort" (only for single column)
 iris8 <- iris
-iris8$Petal.Length <- order(iris$Petal.Length) # sort column in ascending order
-iris8$Petal.Length
+iris8$Petal.Length <- sort(iris8$Petal.Length) # sort column in ascending order
+head(iris8)
 
-iris8$Petal.Length <- order(iris$Petal.Length, decreasing = TRUE) # sort colum in descending order
-iris8$Petal.Length
+iris8$Petal.Length <- sort(iris8$Petal.Length, decreasing = TRUE) # sort column in descending order
+head(iris8)
+
+
+# Sort with the function "order" (works for multiple columns)
+iris9 <- iris[order(iris$Petal.Length), ] # sort column in ascending order
+head(iris9)
+
+iris10 <- iris[order(-iris$Petal.Length), ] # sort column in descending oder (add a "-" in front of the column name)
+head(iris10)
+
+iris11 <- iris[order(iris$Sepal.Length, iris$Species), ] # sort by multiple columns
+head(iris11)
 
