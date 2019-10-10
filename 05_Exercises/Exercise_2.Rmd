@@ -74,7 +74,7 @@ i) Use the command `data(airquality)` to load the dataset.
 
 <br>
 
-ii) Assign a new name with the form `new_name <- airquality`
+ii) Assign a new name by using an expression similar to: `new_name <- airquality`
 
 <br>
 
