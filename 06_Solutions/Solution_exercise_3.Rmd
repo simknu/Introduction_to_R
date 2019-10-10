@@ -66,7 +66,7 @@ unique(temp_be$site) # check the result
 ```
 <br>
 
-ii) Add a column with the variable `year` (the year is `2013`)
+iii) Add a column with the variable `year` (the year is `2013`)
 ```{r add year column, echo = TRUE}
 # Add year column
 temp_be$year <- 2013

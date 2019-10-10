@@ -39,7 +39,7 @@ ii) Filter the dataset for the site `Bern`
 
 <br>
 
-ii) Add a column with the variable `year` (the year is `2013`)
+iii) Add a column with the variable `year` (the year is `2013`)
 
 <br>
 
@@ -76,7 +76,7 @@ ii) Check the function `subset` (`?subset`)
 
 <br>
 
-ii) Use a command in the form of `dataframe$year` and assign the value `2013`
+iii) Use a command in the form of `dataframe$year` and assign the value `2013`
 to this column.
 
 <br>
