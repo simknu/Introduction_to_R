@@ -1,5 +1,5 @@
 ---
-title: "Solution to exercise 4"
+title: "Solution to exercise 5"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -31,13 +31,13 @@ knitr::opts_chunk$set(echo = TRUE)
 i) Load the internal dataset `airquality`
 
 ```{r load airquality dataset, echo=TRUE, error=FALSE, warning=FALSE}
-data("ariquality")
+data("airquality")
 ```
 
 ii) Try to reproduce the plot shown below with `Temperature` on the x-axis
 and `Ozone` on the y-axis
 
-```{r plot airquality, echo = TRUE, results = "hide", fig.show = "hide"}
+```{r plot airquality, results = "hide", fig.show = "hide"}
 # code with comments
 plot(data = airquality, Ozone ~ Temp, # define dataset and x and y variable
      las = 1, # horizontal axis numbers
@@ -45,7 +45,7 @@ plot(data = airquality, Ozone ~ Temp, # define dataset and x and y variable
      xlab = "Temperature (°F)", ylab = "Ozone (ppb)", # change axis labels
      main = "Ozone vs. Temperature") # add a title
 ```
-```{r plot airquality nocomments, echo = TRUE}
+```{r plot airquality nocomments}
 # code without comments
 plot(data = airquality, Ozone ~ Temp, las = 1, pch = 16,
      xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
@@ -60,7 +60,7 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 iii) Calculate the median ozone concentration and add it to the plot as a line
 
-```{r add mean wind speed, echo = TRUE}
+```{r add mean wind speed}
 # recreate plot
 plot(data = airquality, Ozone ~ Temp, las = 1, pch = 16,
      xlab = "Temperature (°F)", ylab = "Ozone (ppb)",
@@ -81,7 +81,7 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 iv) Add a second plot on the right with `Temperature` on the x-axis and
 `Wind` on the y-axis
 
-```{r two column plot, echo = TRUE, fig.height = 4, fig.width = 6}
+```{r two column plot, fig.height = 4, fig.width = 6}
 # create plot window with two columns
 par(mfrow = c(1, 2))
 
@@ -102,7 +102,7 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 v) Save these plots as a PDF
 
-```{r save plots, echo = TRUE}
+```{r save plots}
 # 1) Define the name and size of the plot and where to save it
 pdf(file = "airquality_plot.pdf", width = 8, height = 4)
 
@@ -130,7 +130,7 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 vi) Calculate a linear regression between wind and temperature and add the 
 regression line to the respective plot
 
-```{r calculate lm, echo = TRUE, fig.width = 6, figh.height = 4}
+```{r calculate lm, fig.width = 6, figh.height = 4}
 # calculate linear model
 lm <- lm(formula = Wind ~ Temp, data = airquality)
 # inspect the summary of the linear model
