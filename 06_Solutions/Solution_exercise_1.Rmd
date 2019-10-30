@@ -1,0 +1,73 @@
+---
+title: "Solution to Exercise 1"
+header-includes: |
+  \usepackage{fancyhdr}
+  \usepackage{datetime}
+  \newdateformat{mydate}{\the\day.\the\month.\the\year}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\empty}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{
+    \begin{tabular}[b]{c}%
+      \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+    \end{tabular}
+  }
+output:
+  pdf_document: default
+  html_document:
+    number_sections: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## What results do you expect of the following commands?
+```{r guess results solution #1}
+x <- c(2, 5, 6, 5)
+y <- c(3, 5, 8)
+
+?class
+class(x)
+
+x + 1
+
+x + y
+```
+
+Explanation to `x + y`:  
+When you add vectors, the first element of the first vector is added to the
+first element of the second vector 
+(i.e. `x + y = c(x[1] + y[1], x[2] + y[2], etc.)`).
+If one vector is longer than the other (in this case `x`), the shorter
+vector is recycled (i.e. `(x + y)[4] = x[4] + y[1]`).
+
+```{r guess results solution #2}
+y[2:3]
+x[x > 5]
+
+x <- x[1:2]
+length(x)
+
+member <- c(TRUE, TRUE, FALSE, TRUE)
+?sum
+sum(member)
+
+shoe_size <- c(35, 42, 44, 36, 38, 39)
+length(shoe_size)
+
+mean(shoe_size)
+
+median(shoe_size)
+
+?which.max
+which.max(shoe_size)
+```
+
+Explanation to `which.max()`:  
+The function `which.max()` returns the position of the element with the maximum
+value inside a vector. In this case, the maximum value is `44`, which is at the 
+third position inside the vector `shoe_size`. Therefore, 
+`which.max(shoe_size)` returns the value `3`.
