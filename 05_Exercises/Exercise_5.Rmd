@@ -1,5 +1,5 @@
 ---
-title: "Exercise 4"
+title: "Exercise 5"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -77,9 +77,9 @@ plot(data = airquality, Wind ~ Temp, las = 1,
 <br>
 
 v) Save these plots as a PDF
-<br>
+<br><br>
 
-*For those who have time left:*
+### *For those who have time left:*
 
 vi) Calculate a linear regression between wind and temperature and add the 
 regression line to the respective plot
@@ -109,7 +109,7 @@ and `Ozone` on the y-axis
 iii) Calculate the median ozone concentration and add it to the plot as a line
      - Use the command `median` to calculate the median  
        $\rightarrow$ Do not forget to remove `NA` values with `na.rm = TRUE`
-     - Use the command `abline` (`?abline`) to add a line to an existing plot
+     - Use the function `abline` (`?abline`) to add a line to an existing plot
 
 <br>
 
@@ -117,8 +117,6 @@ iv) Add a second plot on the right with `Temperature` on the x-axis and
 `Wind` on the y-axis
     - Use the command `par(mfrow = c(1, 2))` to create two plot windows (`c(1, 2)`
       means 1 row and 2 columns).
-    - Alternatively you can use the command 
-      `layout(mat = matrix(c(1:2), ncol = 2))`.
 
 <br>
 
@@ -132,6 +130,6 @@ v) Save these plots as a PDF
 
 vi) Calculate a linear regression between wind and temperature and add the 
 regression line to the respective plot
-    - Use the command `lm(...)` (`?lm`) to calculate a linear regression
-    - Use the command `abline` (`?abline`) to add the regression line to the plot
+    - Use the function `lm` (`?lm`) to calculate a linear regression
+    - Use the function `abline` (`?abline`) to add the regression line to the plot
 
