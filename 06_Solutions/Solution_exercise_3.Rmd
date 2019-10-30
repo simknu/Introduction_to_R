@@ -1,5 +1,5 @@
 ---
-title: "Solution to exercise 2"
+title: "Solution to exercise 3"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -22,43 +22,50 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(dplyr)
-library(tidyr)
 ```
 
 ## Data exploration
 
-### Explore the `airquality` dataset
+### Explore the dataset `temperature.csv`
 
-i) Load the internal dataset `airquality`
-```{r load airquality, echo = TRUE, results = "hide"}
-data(airquality)
+i) Load the dataset `temperature.csv` from the `01_Data` folder and assign
+   it to an object with a meaningful name (e.g. `temperature`)
+   
+```{r set working directory, include=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/01_Data/")
 ```
-```{r head of airquality, echo = TRUE}
-head(airquality)
+```{r set working directory #2, eval = FALSE}
+# Set the working directory
+setwd("~/R_Basic_Introduction/01_Data") # replace with your path to the folder "01_Data"
+```
+```{r load temperature dataset}
+# Load data
+temperature <- read.csv(file = "temperature.csv")
+```
+```{r reset working directory, include=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/simonknusel/Documents/02_Job/06_PostDoc/06_R-Courses/01_UZH_courses/2019/R_Basic_Introduction/06_Solutions/")
 ```
 <br>
 
-ii) Assign a new name to the dataset (e.g. `airquality_1`)
-```{r assign new name, echo = TRUE}
-airquality_1 <- airquality
+ii) Get an overview of the dataset:  
+View the first six rows of the dataset
+```{r head of dataset}
+head(temperature)
 ```
-<br>
 
-iii) Get an overview of the dataset:  
 How many rows does the dataset have?
-```{r number of rows, echo = TRUE}
-dim(airquality_1) # returns the number of rows and columns
+```{r number of rows}
+nrow(temperature) # returns the number or rows
 
-nrow(airquality_1) # returns the number or rows
+dim(temperature) # returns the number of rows and columns
 ```
 <br>
 
 How many columns does the dataset have?
-```{r number of columns, echo = TRUE}
-dim(airquality_1) # returns the number of rows and columns
+```{r number of columns}
+ncol(temperature) # returns the number or columns
 
-ncol(airquality_1) # returns the number or columns
+dim(temperature) # returns the number of rows and columns
 ```
 
 
@@ -70,39 +77,32 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 
 What class do the columns have? Can you guess?
-```{r column classes, echo = TRUE}
-class(airquality_1$Ozone)
-class(airquality_1$Solar.R)
-class(airquality_1$Wind)
+```{r column classes}
+class(temperature$site)
+class(temperature$temp)
+class(temperature$day)
+class(temperature$month)
 ```
 <br>
 
-iv) Calculate the mean temperature
-```{r calculate mean temperature, echo = TRUE}
-# select column Temp
-temp <- airquality_1$Temp # select with name
-temp <- airquality_1[, 4] # select with number
+*All in one*: Sturcture of the dataset
+```{r structure of dataset}
+str(temperature)
+```
+<br>
+
+iii) Calculate the mean temperature
+```{r calculate mean temperature}
+# select column 'temp'
+temp <- temperature$temp # select with name
+temp <- temperature[, 2] # select with number
 
 # calculate the mean
-mean(temp)
+mean(temp) # result is NA because 'temp' contains NA's
+mean(temp, na.rm = TRUE)
 
 # or combined in one line
-mean(airquality_1$Temp)
-```
-<br>
-
-v) What is the maximum measured ozone content?
-```{r max ozone content, echo = TRUE}
-# select column Ozone
-ozone <- airquality_1$Ozone
-ozone <- airquality_1[, 1]
-
-# calculate the maximum
-max(ozone) # result is NA because ozone contains NA's
-max(ozone, na.rm = NA)
-
-# or combined in one line
-max(airquality_1$Ozone, na.rm = TRUE)
+mean(temperature$temp, na.rm = TRUE)
 ```
 
 
@@ -113,34 +113,52 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 ```
 
 
-vi) In which month and day was the maximum ozone content measured?
-```{r which.max ozone content, echo = TRUE}
-# select column Ozone
-ozone <- airquality_1$Ozone
-
-# option 1
-which.max(ozone) # row number of maximum
-airquality_1[117, ] # select the row with the maximum ozone measurement
-
-# option 2
-airquality_1[which.max(ozone), ]
-
-# option 3
-# select the row with the maximum ozone measurement and the
-# Month and Day column
-airquality_1[117, 5:6]
+iv) In which months were the measurements taken?
+```{r temp measurement months}
+# extract unique values of column 'month'
+month_measure <- unique(temperature$month)
+month_measure
 ```
 <br>
 
-vii) Calculate the mean temperature for the month May
-```{r temp may, echo = TRUE}
-# subset to the month May
-airquality_may <- subset(x = airquality_1, Month == 5)
-unique(airquality_may$Month) # check the result
+v) What month and day was the maximum temperature measured?
+```{r which.max temperature}
+# select column 'temp'
+temp <- temperature$temp
 
-# select the column Temp
-temp_may <- airquality_may$Temp
+# option 1
+which.max(temp) # row number of maximum
+temperature[180, ] # select the row with the maximum temperature measurement
 
-# calculate the mean
-mean(temp_may)
+# option 2
+temperature[which.max(temp), ]
+
+# option 3
+# select the row with the maximum temperature measurement and the columns
+# 'Month' and 'Day'
+temperature[180, 3:4]
+```
+
+
+```{r pagebreak #3, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
+
+vi) Load the internal dataset `airquality` and caluclate the Pearson 
+correlation between `Wind` and `Temp`. Do you expect a positive or negative
+correlation?
+```{r pearson correlation}
+# load internal dataset airquality
+data(airquality)
+
+# get an overview of the dataset
+head(airquality)
+str(airquality)
+
+# calculate the Pearson correlation
+cor_wind_temp <- cor(airquality$Wind, airquality$Temp, method = "pearson")
+cor_wind_temp
 ```
