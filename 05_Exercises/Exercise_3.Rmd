@@ -1,5 +1,5 @@
 ---
-title: "Exercise 2"
+title: "Exercise 3"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -22,44 +22,38 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(dplyr)
-library(tidyr)
 ```
 
 ## Data exploration
 
-### Explore the `airquality` dataset
+### Explore the dataset `temperature.csv`
 
-i) Load the internal dataset `airquality`
-
+i) Load the dataset `temperature.csv` from the `01_Data` folder and assign
+   it to an object with a meaningful name (e.g. `temperature`)
 <br>
 
-ii) Assign a new name to the dataset (e.g. `airquality_1`)
-
-<br>
-
-iii) Get an overview of the dataset:
-     - How many rows does the dataset have?
-     - How many columns does the dataset have?
-     - What class do the columns have? Can you guess?
-
+ii) Get an overview of the dataset:
+    - View the first six rows of the dataset
+    - How many rows does the dataset have?
+    - How many columns does the dataset have?
+    - What class do the columns have? Can you guess?
 <br><br>
 
-iv) Calculate the mean temperature
+iii) Calculate the mean temperature
 
 <br>
 
-v) What is the maximum measured ozone content?  
-
+iv) In which months were the measurements taken?
 <br>
 
-*For those who have time left...*
+### *For those who have time left...*
 
-vi) In which month and day was the maximum ozone content measured?  
-
+v) What month and day was the maximum temperature measured?
 <br>
 
-vii) Calculate the mean temperature for the month May
+vi) Load the internal dataset `airquality` and caluclate the Pearson 
+correlation between `Wind` and `Temp`. Do you expect a positive or negative
+correlation?
 
 
 ```{r pagebreak, results="asis", echo = FALSE}
@@ -70,33 +64,35 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ## Hints
 
-i) Use the command `data(airquality)` to load the dataset.
+i) Load the dataset `temperature.csv` from the `01_Data` folder and assign
+   it to an object with a meaningful name (e.g. `temp`)
+   - Set the working directory to the `01_Data` folder in the course material
+     (`?setwd` or look at the slides in the `02_Slides` folder)
+   - Load the dataset with the function `read.csv` (`?read.csv`)
 
 <br>
 
-ii) Assign a new name by using an expression similar to: `new_name <- airquality`
+ii) Get an overview of the dataset:
+    - First six rows: Check the function `head` (`?head`)
+    - Number of rows: Check the functions `nrow` (`?nrow`) or `dim` (`?dim`)
+    - Number of columns: Check the functions `ncol` (`?ncol`) or `dim` (`?dim`)
+    - Column classes: Check the function `class` (`?class`)
+    - *All in one*: Check the function `str` (`?str`)
 
 <br>
 
-iii) Get an overview of the dataset:
-     - Number of rows: Check the functions `dim` (`?dim`) or `nrow` (`?nrow`)
-     - Number of columns: Check the functions `dim` (`?dim`) or `ncol` (`?ncol`)
-     - Column classes: Check the function `class` (`?class`)
+iii) Check the function `mean` (`?mean`).  
+     Select the column `temp` (in the form of `df$temp` or `df[, 2]`)
 
 <br>
 
-iv) Check the function `mean` (`?mean`). Select the column `Temp` 
-(in the form of `df$Temp` or `df[, 4]`)
+iv) Check the function `unique` (`?unique`)
 
 <br>
 
-v) Check the function `max` (`?max`) and the argument `na.rm`
+v) Check the function `which.max` (`?which.max`)
 
 <br>
 
-vi) Check the function `which.max`
-
-<br>
-
-vii) Use the function `subset` (`?subset`) to filter for the month May 
-(`Month == 5`)
+vi) Load the dataset with `data(airquality)`  
+    Check the function `cor` (`?cor`) and the argument `method`
