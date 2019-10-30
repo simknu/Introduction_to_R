@@ -1,5 +1,5 @@
 ---
-title: "Exercise 1"
+title: "Exercise 2"
 header-includes: |
   \usepackage{fancyhdr}
   \usepackage{datetime}
@@ -41,26 +41,22 @@ Do I know what to do?
 
 ## Vectors
 
-### 1. What results do you expect of the following commands?
+### 1. Create vectors
+Try to recreate the following vectors:
 
-```{r guess results, echo = TRUE, results = "hide", warning = FALSE, error=FALSE}
-x <- c(2, 5, 6, 5)
-y <- c(3, 5, 8)
+```{r create vec1, echo = FALSE, results = "hide"}
+vec1 <- seq(from = 1, to = 10, by = 0.5)
+```
+```{r print vec1}
+vec1
+```
+<br>
+```{r create vec2, echo = FALSE, results = "hide"}
+vec2 <- rep(c(1, 4, 8, 13), each = 4)
+```
 
-class(x)
-
-x + 1
-x + y
-
-y[2:3]
-x[x > 5]
-
-x <- x[1:2]
-length(x)
-
-member <- c(TRUE, TRUE, FALSE, TRUE)
-?sum
-sum(member)
+```{r print vec2}
+vec2
 ```
 
 
@@ -71,27 +67,9 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 ```
 
 
-### 2. Create vectors
-Try to recreate the following vectors:
-
-```{r create vec1, echo = FALSE, results = "hide"}
-vec1 <- seq(from = 1, to = 10, by = 0.5)
-```
-```{r print vec1, echo = TRUE}
-vec1
-```
-<br>
-```{r create vec2, echo = FALSE, results = "hide"}
-vec2 <- rep(c(1, 4, 8, 13), each = 4)
-```
-
-```{r print vec2, echo = TRUE}
-vec2
-```
-
 ### *For those who have time left...*
 
-### 3. Combine vectors
+### 2. Combine vectors
 Combine the vectors `canton` and `peak` to `peak_canton`.
 
 i) Create the `canton` vector
@@ -99,7 +77,7 @@ i) Create the `canton` vector
 ```{r create canton, echo = FALSE, results = "hide"}
 canton <- c("GR", "TI", "UR", "BE", "VS")
 ```
-```{r print canton, echo = TRUE}
+```{r print canton}
 canton
 ```
 <br>
@@ -110,22 +88,22 @@ ii) Create the `peak` vector
 peak <- c("Piz Bernina", "Adula Rheinwaldhorn", "Dammastock", 
           "Finsteraarhorn", "Dufourspitze")
 ```
-```{r print peak, echo = TRUE}
+```{r print peak}
 peak
 ```
 <br>
 
 iii) What class are the vectors `canton` and `peak`?
 
-iv) Combine the vectors `canton` and `peak`
+iv) Combine the vectors `canton` and `peak` to `peak_canton`
 
 ```{r create peak_canton, echo = FALSE, results = "hide"}
 peak_canton <- paste(peak, canton, sep = "_")
 ```
-```{r print peak_canton, echo = TRUE}
+```{r print peak_canton}
 peak_canton
 ```
-<br><br>
+
 
 ```{r pagebreak #2, results="asis", echo = FALSE}
 if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
@@ -136,18 +114,12 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ## Hints
 
-### 1. What results do you expect of the following commands?
-Type the code into your console and execute the code.  
-Shortcut Mac: Cmd + Enter  
-Shortcut Windows: Ctrl + Enter
-<br>
-
-### 2. Create vectors
-Have a look at the functions `seq` and `rep`.  
+### 1. Create vectors
+Check the functions `seq` and `rep`.  
 You can see the help files by typing `?sep` and `?rep`.
 <br>
 
-### 3. Combine vectors
-Have a look at the function `paste` (`?paste`).  
+### 2. Combine vectors
+Check the function `paste` (`?paste`).  
 Check the argument `sep = " "` inside the function `paste`.
 
