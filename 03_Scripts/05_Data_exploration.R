@@ -10,7 +10,7 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-07
+# Date: 2019-10-31
 # -----------------------------------------------------------------------------
 
 
@@ -22,7 +22,7 @@ data(iris)
 
 # 1) Get an overview of the dataset --------------------
 
-View(iris) # see the dataset as a table
+head(iris) # see the first six rows of the dataset
 
 dim(iris) # dimensions (number of rows, number of columns)
 nrow(iris) # number of rows
