@@ -103,5 +103,9 @@ the temperature is above `0 °C`) for the site `Zurich`
    - Calculate the average temperature with the function `mean` (`?mean`)
 
 vi) Change the column names to lower case
+    - Use the function `colnames` (`?colnames`) to change column names  
+      $\rightarrow$ See file `02_Vector_data_frame_list.R` in the `03_Scripts`
+      folder for an example
     - Try to do it manually and also try to find a function that does this task
+      (e.g. by asking Google)
 
