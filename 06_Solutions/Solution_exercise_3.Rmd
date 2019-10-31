@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Data exploration
 
-### Explore the dataset `temperature.csv`
+### Explore the `temperature` dataset
 
 i) Load the dataset `temperature.csv` from the `01_Data` folder and assign
    it to an object with a meaningful name (e.g. `temperature`)
@@ -53,12 +53,15 @@ View the first six rows of the dataset
 head(temperature)
 ```
 
+<br>
+
 How many rows does the dataset have?
 ```{r number of rows}
 nrow(temperature) # returns the number or rows
 
 dim(temperature) # returns the number of rows and columns
 ```
+
 <br>
 
 How many columns does the dataset have?
@@ -83,6 +86,7 @@ class(temperature$temp)
 class(temperature$day)
 class(temperature$month)
 ```
+
 <br>
 
 *All in one*: Sturcture of the dataset
