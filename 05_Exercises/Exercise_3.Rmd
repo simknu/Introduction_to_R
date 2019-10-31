@@ -43,10 +43,10 @@ iii) Calculate the mean temperature
 
 <br>
 
+### *For those who have time left...*
+
 iv) In which months were the measurements taken?
 <br>
-
-### *For those who have time left...*
 
 v) What month and day was the maximum temperature measured?
 <br>
