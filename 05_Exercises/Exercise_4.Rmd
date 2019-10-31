@@ -41,7 +41,7 @@ iii) Add a column with the variable `year` (the year is `2013`)
 
 <br>
 
-*For those who have time left...*
+### *For those who have time left...*
 
 iv) Create a new `date` column
     - Create a new column that is a combination of the variables `year`, 
