@@ -10,13 +10,14 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-09-30
+# Date: 2019-10-31
 # -----------------------------------------------------------------------------
 
 
 # 1) Set working directory --------------------
 ## See also documentation in the 02_Slides folder
 
+# set working directory to the course folder "R_Basic_Introduction"
 setwd("path_to_your_working_directory") # replace with your working directory
 getwd() # get the current working directory
 
