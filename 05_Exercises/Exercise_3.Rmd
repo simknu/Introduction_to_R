@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Data exploration
 
-### Explore the dataset `temperature.csv`
+### Explore the `temperature` dataset
 
 i) Load the dataset `temperature.csv` from the `01_Data` folder and assign
    it to an object with a meaningful name (e.g. `temperature`)
