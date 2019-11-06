@@ -9,12 +9,8 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-08
+# Date: 2019-11-06
 # -----------------------------------------------------------------------------
-
-
-# Load data --------------------
-data(iris)
 
 
 # 1) Repetition --------------------
@@ -23,19 +19,18 @@ data(iris)
 vec1 <- c("Bern", "Zurich", "Basel", "Geneva")
 class(vec1)
 
-vec1 <- as.factor(vec1)
-vec1
-class(vec1)
-
-vec3 <- c(2, 3, 4, 5)
-class(vec3)
+vec2 <- c(2, 3, 4, 5)
+class(vec2)
 
 # select elements of a vector
-vec4 <- vec1[c(1, 3)]
-vec4
+vec3 <- vec1[c(1, 3)]
+vec3
 
 
 # Data frames ------
+
+# load data
+data(iris)
 
 # get an overview of a data frame
 class(iris)
@@ -43,15 +38,22 @@ head(iris)
 str(iris)
 summary(iris)
 
+# add a new column
+iris1 <- iris
+iris1$genus <- "Iris"
+
+# filter rows by condition
+iris1 <- subset(iris, Sepal.Length > 5.5)
+min(iris1$Sepal.Length)
+
 # select parts of a data frame
-iris[1:20, c(1, 4)]
+# select rows 1 to 20 and columns 1 and 4
+iris2 <- iris[1:20, c(1, 4)]
+iris2
 
-iris[16, ]
-
+# select column Sepal.Length
 sepal_length <- iris$Sepal.Length
-mean(sepal_length)
-max(sepal_length)
-
+sepal_length
 
 
 # 2) Extras --------------------
