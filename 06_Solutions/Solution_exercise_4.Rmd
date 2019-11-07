@@ -119,7 +119,7 @@ temp_zh <- subset(temperature, site == "Zurich")
 temp_zh_nofrost <- subset(temp_zh, temp > 0)
 
 # Example of a combination of the two filter arguments above
-temp_zh_nofrost <- subset(temp_zh, site == "Zurich" & temp > 0)
+temp_zh_nofrost <- subset(temperature, site == "Zurich" & temp > 0)
 
 # Calculate the average temperature
 mean(temp_zh_nofrost$temp)
