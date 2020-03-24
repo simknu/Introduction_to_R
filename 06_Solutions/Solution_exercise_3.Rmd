@@ -71,13 +71,7 @@ ncol(temperature) # returns the number or columns
 dim(temperature) # returns the number of rows and columns
 ```
 
-
-```{r pagebreak #1, results="asis", echo = FALSE}
-if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
-  cat("\\pagebreak")
-}
-```
-
+<br>
 
 What class do the columns have? Can you guess?
 ```{r column classes}
@@ -93,7 +87,14 @@ class(temperature$month)
 ```{r structure of dataset}
 str(temperature)
 ```
-<br>
+
+
+```{r pagebreak #1, results="asis", echo = FALSE}
+if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
+  cat("\\pagebreak")
+}
+```
+
 
 iii) Calculate the mean temperature
 ```{r calculate mean temperature}
@@ -166,3 +167,4 @@ str(airquality)
 cor_wind_temp <- cor(airquality$Wind, airquality$Temp, method = "pearson")
 cor_wind_temp
 ```
+
