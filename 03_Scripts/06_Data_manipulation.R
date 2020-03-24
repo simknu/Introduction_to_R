@@ -6,7 +6,7 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-07
+# Date: 2020-03-26
 # -----------------------------------------------------------------------------
 
 
@@ -70,7 +70,7 @@ iris7
 iris8 <- iris[order(iris$Petal.Length), ] # sort column in ascending order
 head(iris8)
 
-iris9 <- iris[order(-iris$Petal.Length), ] # sort column in descending oder (add a "-" in front of the column name)
+iris9 <- iris[order(-iris$Petal.Length), ] # sort column in descending order (add a "-" in front of the column name)
 head(iris9)
 
 iris10 <- iris[order(iris$Sepal.Length, iris$Species), ] # sort by multiple columns
