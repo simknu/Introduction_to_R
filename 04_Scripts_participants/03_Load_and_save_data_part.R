@@ -10,12 +10,12 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-07
+# Date: 2020-03-26
 # -----------------------------------------------------------------------------
 
 
 # 1) Set working directory --------------------
-## See also documentation in the 02_Slides folder
+## See also video tutorial in the '02_Slides_tutorials' folder
 
 
 

@@ -10,7 +10,7 @@
 
 # Author: Simon Knüsel
 
-# Date: 2019-10-07
+# Date: 2020-03-26
 # -----------------------------------------------------------------------------
 
 
@@ -38,7 +38,7 @@
 
 
 # 3) Functions --------------------
-## See also documentation in the 02_Slides folder
+## See also documentation in the '02_Slides_tutorials' folder
 
 ## Functions take inputs via arguments, transform the input(s) and 
 ## return an output
