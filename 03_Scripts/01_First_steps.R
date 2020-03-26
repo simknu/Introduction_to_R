@@ -51,7 +51,7 @@ object_name <- 5 # This is a good exmaple
 
 
 # 3) Functions --------------------
-## See also documentation in the 02_Slides folder
+## See also documentation in the '02_Slides_tutorials' folder
 
 ## Functions take inputs via arguments, transform the input(s) and 
 ## return an output
