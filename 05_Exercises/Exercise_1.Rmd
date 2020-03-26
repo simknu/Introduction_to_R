@@ -25,6 +25,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 <br>
 
+I recommend you to watch the video tutorial 'Getting_started_with_RStudio'
+in the folder '02_Slides_tutorials' of the course material before starting 
+the exercise.
+<br>
+
+
 ## What results do you expect of the following commands?
 
 ```{r guess results, results = "hide", warning = FALSE, error=FALSE}

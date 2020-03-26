@@ -71,7 +71,7 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 i) Load the dataset `temperature.csv` from the `01_Data` folder and
 assign it to an object with a meaningful name
    - Set the working directory to the `01_Data` folder in the course material
-     (`?setwd` or look at the slides in the `02_Slides` folder)
+     (`?setwd` or look at the video tutorial in the `02_Slides_tutorials` folder)
    - Load the dataset with the function `read.csv` (`?read.csv`)
 
 <br>

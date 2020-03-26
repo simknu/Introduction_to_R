@@ -33,9 +33,7 @@ Do I know what to do?
   + Maybe:  
   $\rightarrow$ *Try...*
   + No:  
-  $\rightarrow$ *Look for help in R (`?function_name`, e.g. `?mean`)*  
-  $\rightarrow$ *Ask Google (e.g. 'r how to calculate mean of data frame column')*  
-  $\rightarrow$ *Look for help on one of the cheat sheets*  
+  $\rightarrow$ *Watch the video tutorial 'How_to_get_help' in the '02_Slides_tutorials' folder of the course material*  
   $\rightarrow$ *Look for hints on the last page of the exercise sheet*
 <br><br>
 
