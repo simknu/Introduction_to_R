@@ -33,18 +33,9 @@ vec3
 data(iris)
 
 # get an overview of a data frame
-class(iris)
 head(iris)
 str(iris)
 summary(iris)
-
-# add a new column
-iris1 <- iris
-iris1$genus <- "Iris"
-
-# filter rows by condition
-iris1 <- subset(iris, Sepal.Length > 5.5)
-min(iris1$Sepal.Length)
 
 # select parts of a data frame
 # select rows 1 to 20 and columns 1 and 4
@@ -58,20 +49,13 @@ sepal_length
 
 # 2) Extras --------------------
 
-# Convert column names to lower case
-iris1 <- iris
-colnames(iris1)
-colnames(iris1) <- c("sepal.length", "sepal.width", "petal.length", 
-                     "petal.width", "species")
-head(iris1)
+# Calculate the mean of rows
+head(iris)
+iris_rowmean <- rowMeans(iris[, 1:4]) # select all numeric columns (1:4) of the iris dataset
+iris_rowmean
 
-# Convert column names automatically
-iris2 <- iris
-# Convert to lower case
-colnames(iris2) <- tolower(colnames(iris2))
-colnames(iris2)
-?tolower
-
-identical(iris1, iris2)
-
+# Add the mean of rows to the iris data frame
+iris_mean <- iris
+iris_mean$rowmean <- rowMeans(iris_mean[, 1:4])
+head(iris_mean)
 
