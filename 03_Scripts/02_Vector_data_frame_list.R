@@ -30,7 +30,7 @@ city
 class(city)
 
 # logical (contains only TRUE or FALSE)
-male <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+male <- c(TRUE, FALSE, TRUE, TRUE, FALSE, TRUE)
 male
 class(male)
 
@@ -58,7 +58,7 @@ city[2] # 2nd element
 
 vec[3:5] # elements 3, 4 and 5
 
-male[c(2, 5, 8)] # elements 2, 5 and 8
+male[c(2, 4, 6)] # elements 2, 4 and 6
 
 
 
