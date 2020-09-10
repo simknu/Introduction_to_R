@@ -11,7 +11,7 @@ header-includes: |
   \fancyfoot[C]{
     \begin{tabular}[b]{c}%
       \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
-      \small by Simon Knüsel, simon.knuesel(at)wsl.ch \\
+      \small by Simon Knüsel, r\_courses(at)gmx.ch \\
     \end{tabular}
   }
 output:
@@ -70,7 +70,7 @@ which.max(shoe_size)
 ```
 
 
-```{r pagebreak #1, results="asis", echo = FALSE}
+```{r pagebreak #1, results = "asis", echo = FALSE}
 if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
   cat("\\pagebreak")
 }
