@@ -12,6 +12,7 @@ header-includes: |
     \begin{tabular}[b]{c}%
       \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
       \small by Simon Knüsel, r\_courses(at)gmx.ch \\
+      \small by Simon Knüsel, r\_courses(at)gmx.ch \\
     \end{tabular}
   }
 output:
