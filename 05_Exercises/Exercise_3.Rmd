@@ -11,7 +11,11 @@ header-includes: |
   \fancyfoot[C]{
     \begin{tabular}[b]{c}%
       \small R: Basic Introduction, University of Zurich | \mydate\today\ \\
+<<<<<<< HEAD
       \small by Simon Knüsel, r\_courses(at)gmx.ch \\
+=======
+      \small by Simon Knüsel, r_courses(at)gmx.ch \\
+>>>>>>> b0ad0b5fbc83bf75632aaf4632659f0c2e9b252c
     \end{tabular}
   }
 output:
