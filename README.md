@@ -13,7 +13,7 @@ The development of this course was mainly inspired by the course material of
 
 
 ### License
-© Simon Knüsel, 2019
+© Simon Knüsel, 2020
 
 Unless otherwise stated this work is licensed under a 
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
@@ -25,11 +25,11 @@ Unless otherwise stated this work is licensed under a
 <br>
 
 All data that is used in this course and not loaded from the `Data` folder 
-is loaded  from the `R` package `datasets` (R Core Team, 2019).
+is loaded  from the `R` package `datasets` (R Core Team, 2020).
 <br><br>
 
 ### References
-R Core Team (2019). R: A language and environment for statistical computing. 
+R Core Team (2020). R: A language and environment for statistical computing. 
   R Foundation for Statistical Computing, Vienna, Austria. 
   URL https://www.R-project.org/.
 
