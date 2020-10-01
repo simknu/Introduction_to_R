@@ -49,15 +49,32 @@ sepal_length
 
 # 2) Extras --------------------
 
-### Calculate the mean of rows
+### Calculate the average sepal length for each species
+data(iris)
 head(iris)
-iris_rowmean <- rowMeans(iris[, 1:4]) # select all numeric columns (1:4) of the iris dataset
-iris_rowmean
 
-# Add the mean of rows to the iris data frame
-iris_mean <- iris
-iris_mean$rowmean <- rowMeans(iris_mean[, 1:4])
-head(iris_mean)
+# If I do not know how to calculate the average sepal length for each 
+# species, i.e. I do not know which function does this, I usually do a
+# Google search. In this case I use the following search query:
+# "r calculate the mean for groups"
+
+
+?aggregate # Get help for the function aggregate
+
+# Calculate the average sepal length for each species - option 1
+iris_group <- aggregate(formula = Sepal.Length ~ Species,
+                        data = iris, FUN = mean)
+
+iris_group # check the result
+
+
+# Calculate the average sepal length for each species - option 2
+iris_group <- aggregate(x = iris$Sepal.Length, 
+                        by = list(iris$Species),
+                        FUN = mean)
+
+iris_group # check the result
+
 
 
 
