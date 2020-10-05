@@ -117,7 +117,7 @@ if ("pdf_document" %in% rmarkdown::all_output_formats(knitr::current_input())) {
 
 ### 1. Create vectors
 Check the functions `seq` and `rep`.  
-You can see the help files by typing `?sep` and `?rep`.
+You can see the help files by typing `?seq` and `?rep`.
 <br>
 
 ### 2. Combine vectors
